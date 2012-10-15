@@ -54,6 +54,13 @@
 			remoteGlobalIDString = 2BDC4ABB133404BB00E25283;
 			remoteInfo = WhirlyGlobeLib;
 		};
+		FBD8C8771628C3BF001088AF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2B11E0EB15B4C0BA007AAE3F /* WhirlyGlobeLib.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 2BDC4ABA133404BB00E25283;
+			remoteInfo = WhirlyGlobeLib;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -269,6 +276,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				FBD8C8781628C3BF001088AF /* PBXTargetDependency */,
 			);
 			name = WhirlyGlobeComponent;
 			productName = WhirlyGlobeComponent;
@@ -342,6 +350,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		FBD8C8781628C3BF001088AF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = WhirlyGlobeLib;
+			targetProxy = FBD8C8771628C3BF001088AF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
 		2B11E0E615B4C030007AAE3F /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -393,8 +409,8 @@
 				GCC_PREFIX_HEADER = "WhirlyGlobeComponent/WhirlyGlobeComponent-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					../WhirlyGlobeLib/include/,
-					../../../utilities/boost_1_45_0,
-					"../../../utilities/eigen-eigen-3.0.1",
+					"$(WHIRLY_DEPENDENCIES)/boost",
+					"$(WHIRLY_DEPENDENCIES)/eigen",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -413,8 +429,8 @@
 				GCC_PREFIX_HEADER = "WhirlyGlobeComponent/WhirlyGlobeComponent-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					../WhirlyGlobeLib/include/,
-					../../../utilities/boost_1_45_0,
-					"../../../utilities/eigen-eigen-3.0.1",
+					"$(WHIRLY_DEPENDENCIES)/boost",
+					"$(WHIRLY_DEPENDENCIES)/eigen",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
