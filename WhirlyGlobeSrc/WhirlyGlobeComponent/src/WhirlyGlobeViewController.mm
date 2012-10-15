@@ -351,7 +351,7 @@ using namespace WhirlyGlobe;
     newLayer.cacheDir = cacheDir;
     [userLayers addObject:newLayer];
     
-    return nil;
+    return newLayer;
 }
 
 - (WGViewControllerLayer *)addQuadEarthLayerWithMetadataURL:(NSString *)metadataURL imageExt:(NSString *)ext cache:(NSString *)cacheDir minZoom:(int)minZoom maxZoom:(int)maxZoom andImageURLBuilder:(NSString *(^)(NSData *, NSString *))urlBuilder
@@ -362,7 +362,7 @@ using namespace WhirlyGlobe;
     newLayer.cacheDir = cacheDir;
     [userLayers addObject:newLayer];
     
-    return nil;
+    return newLayer;
 }
 
 #pragma mark - Defaults and descriptions

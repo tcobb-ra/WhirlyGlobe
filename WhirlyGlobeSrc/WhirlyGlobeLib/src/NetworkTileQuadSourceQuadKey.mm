@@ -46,7 +46,7 @@
 
         if (!imageData)
         {
-            NSURLRequest *metadataRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://dev.virtualearth.net/REST/v1/Imagery/Metadata/Aerial?key=AjeEdkQabQ_xX9nYyEbTpwMfIltNfTL3_CryVvFKvTL4fXWzy7fF6x_t8ndteCXG"]];
+            NSURLRequest *metadataRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:self.metadataURL]];
 
             NSURLResponse *response = nil;
             NSError *error = nil;
@@ -54,7 +54,7 @@
                                                   returningResponse:&response
                                                               error:&error];
             
-            if(error || !metadataData) // that last part...
+            if(error || !metadataData) // not sure if that last condition does anything
                 metadataData = nil;
 
             if(metadataData)
@@ -62,7 +62,7 @@
                 NSURLRequest *imageRequest = [[NSURLRequest alloc] initWithURL:[[NSURL alloc] initWithString:self.imageURLBuilder(metadataData, quadKey)]];
                 imageData = [NSURLConnection sendSynchronousRequest:imageRequest returningResponse:&response error:&error];
                 
-                if(error || !imageData) // yeah so...
+                if(error || !imageData)
                     imageData = nil;
                 
                 if(!imageData)

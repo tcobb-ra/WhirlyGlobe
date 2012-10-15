@@ -203,7 +203,7 @@ LocationInfo locations[NumLocations] =
             NSError *error = nil;
             [[NSFileManager defaultManager] createDirectoryAtPath:thisCacheDir withIntermediateDirectories:YES attributes:nil error:&error];
             
-            [globeViewC addQuadEarthLayerWithMetadataURL:@"doesn't matter at the moment" imageExt:@"jpg" cache:thisCacheDir minZoom:0 maxZoom:12 andImageURLBuilder:^NSString *(NSData *metadataData, NSString *quadKey)
+            [globeViewC addQuadEarthLayerWithMetadataURL:@"http://dev.virtualearth.net/REST/v1/Imagery/Metadata/Aerial?key=AjeEdkQabQ_xX9nYyEbTpwMfIltNfTL3_CryVvFKvTL4fXWzy7fF6x_t8ndteCXG" imageExt:@"jpg" cache:thisCacheDir minZoom:0 maxZoom:12 andImageURLBuilder:^NSString *(NSData *metadataData, NSString *quadKey)
             {
                 NSError *error = nil;
                 NSDictionary *metadata = [NSJSONSerialization JSONObjectWithData:metadataData options:0 error:&error];

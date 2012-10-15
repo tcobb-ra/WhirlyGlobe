@@ -246,7 +246,7 @@ void Quadtree::Identifier::buildQuadKey(char *quadKey)
         uint mask = 1 << (level - 1 - index);
         if(x & mask)
             digitOffset += rowDelta;
-        if(y & mask)
+        if(!(y & mask))
             digitOffset += columnDelta;
         quadKey[index] = (char)(zeroChar + digitOffset);
     }

@@ -27,7 +27,6 @@
 		2B3009C91427C19900B1C69E /* RenderCache.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2B3009C71427C19900B1C69E /* RenderCache.mm */; };
 		2B35A8511337CC2F0047C705 /* GLUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 2B35A8501337CC2F0047C705 /* GLUtils.h */; };
 		2B35A8551337CC5F0047C705 /* GLUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2B35A8531337CC5F0047C705 /* GLUtils.mm */; };
-		2B3A0D41133405700085EF43 /* shapefil.h in Headers */ = {isa = PBXBuildFile; fileRef = 2B951D8E12F09E7A005003AE /* shapefil.h */; };
 		2B3A0D42133405780085EF43 /* WhirlyGlobe.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC53FD212DE22FA00778431 /* WhirlyGlobe.h */; };
 		2B3A0D43133405780085EF43 /* WhirlyVector.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC53FE112DE23BA00778431 /* WhirlyVector.h */; };
 		2B3A0D44133405780085EF43 /* WhirlyGeometry.h in Headers */ = {isa = PBXBuildFile; fileRef = 2B3A36E412E63F9500698DA1 /* WhirlyGeometry.h */; };
@@ -154,13 +153,14 @@
 		2BFBF15D14BF64100020FE6B /* PanDelegateMap.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2BFBF15C14BF64100020FE6B /* PanDelegateMap.mm */; };
 		2BFC34D713CBF9F500403799 /* DrawCost.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BFC34D513CBF9F500403799 /* DrawCost.h */; };
 		2BFC34DC13CBFA9A00403799 /* DrawCost.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2BFC34DA13CBFA9A00403799 /* DrawCost.mm */; };
-		FBD8C87A1628C4DB001088AF /* clipper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBD8C8791628C4DB001088AF /* clipper.cpp */; };
-		FBD8C87D1628C510001088AF /* dbfopen.c in Sources */ = {isa = PBXBuildFile; fileRef = FBD8C87B1628C510001088AF /* dbfopen.c */; };
-		FBD8C87E1628C510001088AF /* shpopen.c in Sources */ = {isa = PBXBuildFile; fileRef = FBD8C87C1628C510001088AF /* shpopen.c */; };
-		FBD8C8801628C52A001088AF /* safileio.c in Sources */ = {isa = PBXBuildFile; fileRef = FBD8C87F1628C52A001088AF /* safileio.c */; };
 		FBDA6EC8162C6EC600BF0C4B /* NetworkTileQuadSource.mm in Sources */ = {isa = PBXBuildFile; fileRef = FBDA6EC6162C6EC600BF0C4B /* NetworkTileQuadSource.mm */; };
 		FBDA6EC9162C6EC600BF0C4B /* NetworkTileQuadSource.h in Headers */ = {isa = PBXBuildFile; fileRef = FBDA6EC7162C6EC600BF0C4B /* NetworkTileQuadSource.h */; };
 		FBDA6ECE162C717300BF0C4B /* NetworkTileQuadSourceQuadKey.mm in Sources */ = {isa = PBXBuildFile; fileRef = FBDA6ECD162C717300BF0C4B /* NetworkTileQuadSourceQuadKey.mm */; };
+		FBDA6EDB162CAEFB00BF0C4B /* dbfopen.c in Sources */ = {isa = PBXBuildFile; fileRef = FBDA6ED8162CAEFB00BF0C4B /* dbfopen.c */; };
+		FBDA6EDC162CAEFB00BF0C4B /* safileio.c in Sources */ = {isa = PBXBuildFile; fileRef = FBDA6ED9162CAEFB00BF0C4B /* safileio.c */; };
+		FBDA6EDD162CAEFB00BF0C4B /* shpopen.c in Sources */ = {isa = PBXBuildFile; fileRef = FBDA6EDA162CAEFB00BF0C4B /* shpopen.c */; };
+		FBDA6EDF162CAF3C00BF0C4B /* clipper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBDA6EDE162CAF3C00BF0C4B /* clipper.cpp */; };
+		FBDA6EE1162CAF8400BF0C4B /* shapefil.h in Headers */ = {isa = PBXBuildFile; fileRef = FBDA6EE0162CAF8400BF0C4B /* shapefil.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -241,12 +241,8 @@
 		2B95192E12EF4417005003AE /* WhirlyVector.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; path = WhirlyVector.mm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		2B951C7D12EFA262005003AE /* GridLines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridLines.h; sourceTree = "<group>"; };
 		2B951C8D12EFA567005003AE /* GridLines.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GridLines.mm; sourceTree = "<group>"; };
-		2B951D8E12F09E7A005003AE /* shapefil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shapefil.h; sourceTree = "<group>"; };
-		2B951D9012F09E91005003AE /* shpopen.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = shpopen.c; sourceTree = "<group>"; };
-		2B951D9212F09EA0005003AE /* dbfopen.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dbfopen.c; sourceTree = "<group>"; };
 		2B951D9812F09F31005003AE /* VectorLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VectorLayer.h; sourceTree = "<group>"; };
 		2B951D9A12F0A087005003AE /* VectorLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = VectorLayer.mm; sourceTree = "<group>"; };
-		2B951DF012F0AC50005003AE /* safileio.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = safileio.c; sourceTree = "<group>"; };
 		2BA2BB76153E08F800DAB382 /* Quadtree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Quadtree.h; sourceTree = "<group>"; };
 		2BA2BB84153E0BC700DAB382 /* LayerViewWatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayerViewWatcher.h; sourceTree = "<group>"; };
 		2BA2BB86153E0C6200DAB382 /* GlobeLayerViewWatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobeLayerViewWatcher.h; sourceTree = "<group>"; };
@@ -322,14 +318,15 @@
 		2BFC34DA13CBFA9A00403799 /* DrawCost.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; path = DrawCost.mm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		AA747D9E0F9514B9006C5449 /* WhirlyGlobeLib_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhirlyGlobeLib_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		FBD8C8791628C4DB001088AF /* clipper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = clipper.cpp; path = ../../../WhirlyDependencies/clipper/cpp/clipper.cpp; sourceTree = "<group>"; };
-		FBD8C87B1628C510001088AF /* dbfopen.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = dbfopen.c; path = ../../../WhirlyDependencies/shapelib/dbfopen.c; sourceTree = "<group>"; };
-		FBD8C87C1628C510001088AF /* shpopen.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = shpopen.c; path = ../../../WhirlyDependencies/shapelib/shpopen.c; sourceTree = "<group>"; };
-		FBD8C87F1628C52A001088AF /* safileio.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = safileio.c; path = ../../../WhirlyDependencies/shapelib/safileio.c; sourceTree = "<group>"; };
 		FBDA6EC6162C6EC600BF0C4B /* NetworkTileQuadSource.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = NetworkTileQuadSource.mm; path = ../include/NetworkTileQuadSource.mm; sourceTree = "<group>"; };
 		FBDA6EC7162C6EC600BF0C4B /* NetworkTileQuadSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkTileQuadSource.h; sourceTree = "<group>"; };
 		FBDA6ECC162C714F00BF0C4B /* NetworkTileQuadSourceQuadKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkTileQuadSourceQuadKey.h; sourceTree = "<group>"; };
 		FBDA6ECD162C717300BF0C4B /* NetworkTileQuadSourceQuadKey.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NetworkTileQuadSourceQuadKey.mm; sourceTree = "<group>"; };
+		FBDA6ED8162CAEFB00BF0C4B /* dbfopen.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = dbfopen.c; path = ../../Dependencies/shapelib/dbfopen.c; sourceTree = "<group>"; };
+		FBDA6ED9162CAEFB00BF0C4B /* safileio.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = safileio.c; path = ../../Dependencies/shapelib/safileio.c; sourceTree = "<group>"; };
+		FBDA6EDA162CAEFB00BF0C4B /* shpopen.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = shpopen.c; path = ../../Dependencies/shapelib/shpopen.c; sourceTree = "<group>"; };
+		FBDA6EDE162CAF3C00BF0C4B /* clipper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = clipper.cpp; path = ../../../Dependencies/clipper/cpp/clipper.cpp; sourceTree = "<group>"; };
+		FBDA6EE0162CAF8400BF0C4B /* shapefil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = shapefil.h; path = ../../Dependencies/shapelib/shapefil.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -355,10 +352,7 @@
 		0867D691FE84028FC02AAC07 /* WhirlyGlobeLib */ = {
 			isa = PBXGroup;
 			children = (
-				FBD8C87F1628C52A001088AF /* safileio.c */,
-				FBD8C87B1628C510001088AF /* dbfopen.c */,
-				FBD8C87C1628C510001088AF /* shpopen.c */,
-				FBD8C8791628C4DB001088AF /* clipper.cpp */,
+				FBDA6EDE162CAF3C00BF0C4B /* clipper.cpp */,
 				2B3AF66C13EEDD7E004A781D /* Resources */,
 				08FB77AEFE84172EC02AAC07 /* Classes */,
 				32C88DFF0371C24200C91783 /* Other Sources */,
@@ -497,13 +491,13 @@
 		2B951D8A12F09E09005003AE /* shapelib-1.3.0b2 */ = {
 			isa = PBXGroup;
 			children = (
-				2B951DF012F0AC50005003AE /* safileio.c */,
-				2B951D8E12F09E7A005003AE /* shapefil.h */,
-				2B951D9212F09EA0005003AE /* dbfopen.c */,
-				2B951D9012F09E91005003AE /* shpopen.c */,
+				FBDA6EE0162CAF8400BF0C4B /* shapefil.h */,
+				FBDA6ED8162CAEFB00BF0C4B /* dbfopen.c */,
+				FBDA6ED9162CAEFB00BF0C4B /* safileio.c */,
+				FBDA6EDA162CAEFB00BF0C4B /* shpopen.c */,
 			);
 			name = "shapelib-1.3.0b2";
-			path = "../../../utilities/shapelib-1.3.0b2";
+			path = ../../../Dependencies/shapelib;
 			sourceTree = "<group>";
 		};
 		2B951D9612F09EE1005003AE /* layers & generators */ = {
@@ -877,6 +871,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBDA6EE1162CAF8400BF0C4B /* shapefil.h in Headers */,
 				2B3A0D42133405780085EF43 /* WhirlyGlobe.h in Headers */,
 				2B3A0D43133405780085EF43 /* WhirlyVector.h in Headers */,
 				2B3A0D44133405780085EF43 /* WhirlyGeometry.h in Headers */,
@@ -907,7 +902,6 @@
 				2B3A0D5D133405780085EF43 /* GridLines.h in Headers */,
 				2B3A0D5F133405780085EF43 /* VectorLayer.h in Headers */,
 				2B3A0D60133405780085EF43 /* LabelLayer.h in Headers */,
-				2B3A0D41133405700085EF43 /* shapefil.h in Headers */,
 				2B35A8511337CC2F0047C705 /* GLUtils.h in Headers */,
 				2B076B32133951DE009D931D /* LongPressDelegate.h in Headers */,
 				2B66298113417DF700A78F16 /* TextureAtlas.h in Headers */,
@@ -1010,10 +1004,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FBD8C8801628C52A001088AF /* safileio.c in Sources */,
-				FBD8C87D1628C510001088AF /* dbfopen.c in Sources */,
-				FBD8C87E1628C510001088AF /* shpopen.c in Sources */,
-				FBD8C87A1628C4DB001088AF /* clipper.cpp in Sources */,
+				FBDA6EDF162CAF3C00BF0C4B /* clipper.cpp in Sources */,
+				FBDA6EDB162CAEFB00BF0C4B /* dbfopen.c in Sources */,
+				FBDA6EDC162CAEFB00BF0C4B /* safileio.c in Sources */,
+				FBDA6EDD162CAEFB00BF0C4B /* shpopen.c in Sources */,
 				2BDC4AC6133404D400E25283 /* UIImage+Stuff.mm in Sources */,
 				2BDC4AC7133404D400E25283 /* NSDictionary+Stuff.m in Sources */,
 				2BDC4AC8133404D400E25283 /* UIColor+Stuff.mm in Sources */,
@@ -1160,10 +1154,10 @@
 				GCC_WARN_MULTIPLE_DEFINITION_TYPES_FOR_SELECTOR = YES;
 				GCC_WARN_NON_VIRTUAL_DESTRUCTOR = YES;
 				HEADER_SEARCH_PATHS = (
-					"$(WHIRLY_DEPENDENCIES)/boost",
-					"$(WHIRLY_DEPENDENCIES)/eigen",
-					"$(WHIRLY_DEPENDENCIES)/clipper",
-					"$(WHIRLY_DEPENDENCIES)/shapelib",
+					"$(LibraryDependencies)/boost",
+					"$(LibraryDependencies)/eigen",
+					"$(LibraryDependencies)/clipper",
+					"$(LibraryDependencies)/shapelib",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = (
@@ -1193,10 +1187,10 @@
 				GCC_WARN_MULTIPLE_DEFINITION_TYPES_FOR_SELECTOR = YES;
 				GCC_WARN_NON_VIRTUAL_DESTRUCTOR = YES;
 				HEADER_SEARCH_PATHS = (
-					"$(WHIRLY_DEPENDENCIES)/boost",
-					"$(WHIRLY_DEPENDENCIES)/eigen",
-					"$(WHIRLY_DEPENDENCIES)/clipper",
-					"$(WHIRLY_DEPENDENCIES)/shapelib",
+					"$(LibraryDependencies)/boost",
+					"$(LibraryDependencies)/eigen",
+					"$(LibraryDependencies)/clipper",
+					"$(LibraryDependencies)/shapelib",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = (
