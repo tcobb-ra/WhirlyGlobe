@@ -409,8 +409,8 @@
 				GCC_PREFIX_HEADER = "WhirlyGlobeComponent/WhirlyGlobeComponent-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					../WhirlyGlobeLib/include/,
-					"$(WHIRLY_DEPENDENCIES)/boost",
-					"$(WHIRLY_DEPENDENCIES)/eigen",
+					"$(LibraryDependencies)/boost",
+					"$(LibraryDependencies)/eigen",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -429,8 +429,8 @@
 				GCC_PREFIX_HEADER = "WhirlyGlobeComponent/WhirlyGlobeComponent-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					../WhirlyGlobeLib/include/,
-					"$(WHIRLY_DEPENDENCIES)/boost",
-					"$(WHIRLY_DEPENDENCIES)/eigen",
+					"$(LibraryDependencies)/boost",
+					"$(LibraryDependencies)/eigen",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
