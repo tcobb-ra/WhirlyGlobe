@@ -112,9 +112,6 @@
 		2BACE0671581017800E3793D /* SphericalEarthQuadLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2BACE0651581017800E3793D /* SphericalEarthQuadLayer.mm */; };
 		2BACE0681581017800E3793D /* SceneGraphGenerator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2BACE0661581017800E3793D /* SceneGraphGenerator.mm */; };
 		2BDC4ABC133404BB00E25283 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
-		2BDC4AC3133404C600E25283 /* dbfopen.c in Sources */ = {isa = PBXBuildFile; fileRef = 2B951D9212F09EA0005003AE /* dbfopen.c */; };
-		2BDC4AC4133404C600E25283 /* shpopen.c in Sources */ = {isa = PBXBuildFile; fileRef = 2B951D9012F09E91005003AE /* shpopen.c */; };
-		2BDC4AC5133404CA00E25283 /* safileio.c in Sources */ = {isa = PBXBuildFile; fileRef = 2B951DF012F0AC50005003AE /* safileio.c */; };
 		2BDC4AC6133404D400E25283 /* UIImage+Stuff.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2BC53FED12DE23D400778431 /* UIImage+Stuff.mm */; };
 		2BDC4AC7133404D400E25283 /* NSDictionary+Stuff.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3C81BD132FE77C0029DEF2 /* NSDictionary+Stuff.m */; };
 		2BDC4AC8133404D400E25283 /* UIColor+Stuff.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2B3C81C113301EE30029DEF2 /* UIColor+Stuff.mm */; };
@@ -148,7 +145,6 @@
 		2BEFDE98149966D400C63326 /* Tesselator.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BEFDE96149966D400C63326 /* Tesselator.h */; };
 		2BEFDE9B149966F300C63326 /* GridClipper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2BEFDE99149966F300C63326 /* GridClipper.mm */; };
 		2BEFDE9C149966F300C63326 /* Tesselator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2BEFDE9A149966F300C63326 /* Tesselator.mm */; };
-		2BEFDEA214997C0400C63326 /* clipper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BEFDEA114997C0400C63326 /* clipper.cpp */; };
 		2BF401BB15C0B47C00B5BFD9 /* UpdateDisplayLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2BF401B915C0B47C00B5BFD9 /* UpdateDisplayLayer.mm */; };
 		2BF401BC15C0B47C00B5BFD9 /* ViewPlacementGenerator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2BF401BA15C0B47C00B5BFD9 /* ViewPlacementGenerator.mm */; };
 		2BF401C015C0B49500B5BFD9 /* UpdateDisplayLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BF401BE15C0B49500B5BFD9 /* UpdateDisplayLayer.h */; };
@@ -158,6 +154,10 @@
 		2BFBF15D14BF64100020FE6B /* PanDelegateMap.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2BFBF15C14BF64100020FE6B /* PanDelegateMap.mm */; };
 		2BFC34D713CBF9F500403799 /* DrawCost.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BFC34D513CBF9F500403799 /* DrawCost.h */; };
 		2BFC34DC13CBFA9A00403799 /* DrawCost.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2BFC34DA13CBFA9A00403799 /* DrawCost.mm */; };
+		FBD8C87A1628C4DB001088AF /* clipper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBD8C8791628C4DB001088AF /* clipper.cpp */; };
+		FBD8C87D1628C510001088AF /* dbfopen.c in Sources */ = {isa = PBXBuildFile; fileRef = FBD8C87B1628C510001088AF /* dbfopen.c */; };
+		FBD8C87E1628C510001088AF /* shpopen.c in Sources */ = {isa = PBXBuildFile; fileRef = FBD8C87C1628C510001088AF /* shpopen.c */; };
+		FBD8C8801628C52A001088AF /* safileio.c in Sources */ = {isa = PBXBuildFile; fileRef = FBD8C87F1628C52A001088AF /* safileio.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -319,6 +319,10 @@
 		2BFC34DA13CBFA9A00403799 /* DrawCost.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; path = DrawCost.mm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		AA747D9E0F9514B9006C5449 /* WhirlyGlobeLib_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhirlyGlobeLib_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		FBD8C8791628C4DB001088AF /* clipper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = clipper.cpp; path = ../../../WhirlyDependencies/clipper/cpp/clipper.cpp; sourceTree = "<group>"; };
+		FBD8C87B1628C510001088AF /* dbfopen.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = dbfopen.c; path = ../../../WhirlyDependencies/shapelib/dbfopen.c; sourceTree = "<group>"; };
+		FBD8C87C1628C510001088AF /* shpopen.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = shpopen.c; path = ../../../WhirlyDependencies/shapelib/shpopen.c; sourceTree = "<group>"; };
+		FBD8C87F1628C52A001088AF /* safileio.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = safileio.c; path = ../../../WhirlyDependencies/shapelib/safileio.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -344,6 +348,10 @@
 		0867D691FE84028FC02AAC07 /* WhirlyGlobeLib */ = {
 			isa = PBXGroup;
 			children = (
+				FBD8C87F1628C52A001088AF /* safileio.c */,
+				FBD8C87B1628C510001088AF /* dbfopen.c */,
+				FBD8C87C1628C510001088AF /* shpopen.c */,
+				FBD8C8791628C4DB001088AF /* clipper.cpp */,
 				2B3AF66C13EEDD7E004A781D /* Resources */,
 				08FB77AEFE84172EC02AAC07 /* Classes */,
 				32C88DFF0371C24200C91783 /* Other Sources */,
@@ -990,6 +998,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBD8C8801628C52A001088AF /* safileio.c in Sources */,
+				FBD8C87D1628C510001088AF /* dbfopen.c in Sources */,
+				FBD8C87E1628C510001088AF /* shpopen.c in Sources */,
+				FBD8C87A1628C4DB001088AF /* clipper.cpp in Sources */,
 				2BDC4AC6133404D400E25283 /* UIImage+Stuff.mm in Sources */,
 				2BDC4AC7133404D400E25283 /* NSDictionary+Stuff.m in Sources */,
 				2BDC4AC8133404D400E25283 /* UIColor+Stuff.mm in Sources */,
@@ -1017,9 +1029,6 @@
 				2BDC4ADE133404D400E25283 /* GridLines.mm in Sources */,
 				2BDC4ADF133404D400E25283 /* VectorLayer.mm in Sources */,
 				2BDC4AE0133404D400E25283 /* LabelLayer.mm in Sources */,
-				2BDC4AC5133404CA00E25283 /* safileio.c in Sources */,
-				2BDC4AC3133404C600E25283 /* dbfopen.c in Sources */,
-				2BDC4AC4133404C600E25283 /* shpopen.c in Sources */,
 				2B35A8551337CC5F0047C705 /* GLUtils.mm in Sources */,
 				2B076B35133952C6009D931D /* LongPressDelegate.mm in Sources */,
 				2B66298413418D9B00A78F16 /* TextureAtlas.mm in Sources */,
@@ -1039,7 +1048,6 @@
 				2BEFDE931499643000C63326 /* LoftLayer.mm in Sources */,
 				2BEFDE9B149966F300C63326 /* GridClipper.mm in Sources */,
 				2BEFDE9C149966F300C63326 /* Tesselator.mm in Sources */,
-				2BEFDEA214997C0400C63326 /* clipper.cpp in Sources */,
 				2B4504B714BCB7EA00C99306 /* WhirlyKitView.mm in Sources */,
 				2B4504B914BCC29D00C99306 /* FlatMath.mm in Sources */,
 				2B4504BB14BCC60F00C99306 /* WhirlyMapView.mm in Sources */,
@@ -1137,6 +1145,12 @@
 				GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS = YES;
 				GCC_WARN_MULTIPLE_DEFINITION_TYPES_FOR_SELECTOR = YES;
 				GCC_WARN_NON_VIRTUAL_DESTRUCTOR = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(WHIRLY_DEPENDENCIES)/boost",
+					"$(WHIRLY_DEPENDENCIES)/eigen",
+					"$(WHIRLY_DEPENDENCIES)/clipper",
+					"$(WHIRLY_DEPENDENCIES)/shapelib",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1164,6 +1178,12 @@
 				GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS = YES;
 				GCC_WARN_MULTIPLE_DEFINITION_TYPES_FOR_SELECTOR = YES;
 				GCC_WARN_NON_VIRTUAL_DESTRUCTOR = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(WHIRLY_DEPENDENCIES)/boost",
+					"$(WHIRLY_DEPENDENCIES)/eigen",
+					"$(WHIRLY_DEPENDENCIES)/clipper",
+					"$(WHIRLY_DEPENDENCIES)/shapelib",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = (
 					"-ObjC",

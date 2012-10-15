@@ -59,6 +59,8 @@ public:
         int y;
         /// Level of detail, starting with 0 at the top (low)
         int level;
+
+        void buildQuadKey(char *quadKey);
     };
 
     /// Quad tree node with bounding box and importance, which is possibly screen size
@@ -74,6 +76,8 @@ public:
         Mbr mbr;
         /// Importance as calculated by the callback.  More is better.
         float importance;
+        /// pointer to node's quadkey -- Node object manages its lifecycle
+        char *quadKey;
     };
 
     /// Check if the given tile is already present
@@ -89,7 +93,7 @@ public:
     void reevaluateNodes();
     
     /// Add the given tile, keeping track of what needed to be removed
-    void addTile(NodeInfo nodeInfo,std::vector<Identifier> &tilesRemoved);
+    void addTile(NodeInfo *nodeInfo, std::vector<Identifier> &tilesRemoved);
     
     /// Explicitly remove a given tile
     void removeTile(Identifier which);
@@ -159,8 +163,10 @@ protected:
         friend class Quadtree;
     public:
         Node(Quadtree *tree);
+        ~Node();
         
         NodeInfo nodeInfo;
+        char *quadKey;
         
         void addChild(Quadtree *tree,Node *child);
         void removeChild(Quadtree *tree,Node *child);

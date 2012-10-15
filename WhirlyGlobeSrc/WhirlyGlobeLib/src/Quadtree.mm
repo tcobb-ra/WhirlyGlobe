@@ -48,10 +48,16 @@ bool Quadtree::NodeInfo::operator<(const NodeInfo &that) const
 Quadtree::Node::Node(Quadtree *tree)
 {
     parent = NULL;
+    quadKey = NULL;
     for (unsigned int ii=0;ii<4;ii++)
         children[ii] = NULL;
     identPos = tree->nodesByIdent.end();
     sizePos = tree->nodesBySize.end();
+}
+    
+Quadtree::Node::~Node()
+{
+    free(quadKey);
 }
     
 void Quadtree::Node::addChild(Quadtree *tree,Node *child)
@@ -173,22 +179,26 @@ void Quadtree::reevaluateNodes()
     }
 }
 
-void Quadtree::addTile(NodeInfo nodeInfo, std::vector<Identifier> &tilesRemoved)
+void Quadtree::addTile(NodeInfo *nodeInfo, std::vector<Identifier> &tilesRemoved)
 {
     // Look for the parent
     Node *parent = NULL;
-    if (nodeInfo.ident.level > minLevel)
+    if (nodeInfo->ident.level > minLevel)
     {
-        parent = getNode(Identifier(nodeInfo.ident.x / 2, nodeInfo.ident.y / 2, nodeInfo.ident.level - 1));
+        parent = getNode(Identifier(nodeInfo->ident.x / 2, nodeInfo->ident.y / 2, nodeInfo->ident.level - 1));
         // Note: Should check for a missing parent.  Shouldn't happen.
     }
 
     // Set up the node first, so we don't remove the parent
     Node *node = new Node(this);
     node->parent = parent;
-    node->nodeInfo = nodeInfo;
     if (parent)
         node->parent->addChild(this,node);
+    size_t numChars = (nodeInfo->ident.level + 2); // level is zero-indexed, key needs at least 1 char (+1) and a null-terminator (+1)
+    node->quadKey = (char *)calloc(numChars, sizeof(char));
+    nodeInfo->quadKey = node->quadKey;
+    nodeInfo->ident.buildQuadKey(node->quadKey);
+    node->nodeInfo = *nodeInfo;
 
     // Need to remove a node
     int numNodes = nodesByIdent.size();
@@ -222,6 +232,25 @@ Quadtree::NodeInfo Quadtree::generateNode(Identifier ident)
     nodeInfo.importance = [importDelegate importanceForTile:nodeInfo.ident mbr:nodeInfo.mbr tree:this];
     
     return nodeInfo;
+}
+    
+void Quadtree::Identifier::buildQuadKey(char *quadKey)
+{
+    const uint zeroChar = 48;
+    const uint rowDelta = 1;
+    const uint columnDelta = 2;
+    
+    uint boundary = level + 1;
+    for(int index = 0 ; index < boundary ; index++)
+    {
+        uint digitOffset = 0;
+        uint mask = 1 << (level - index);
+        if(x & mask)
+            digitOffset += rowDelta;
+        if(y & mask)
+            digitOffset += columnDelta;
+        quadKey[index] = (char)(zeroChar + digitOffset);
+    }
 }
     
 Mbr Quadtree::generateMbrForNode(Identifier ident)

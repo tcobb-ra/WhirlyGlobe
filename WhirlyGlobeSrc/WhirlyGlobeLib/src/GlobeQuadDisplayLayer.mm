@@ -272,7 +272,7 @@ float ScreenImportance(WhirlyGlobeViewState * __unsafe_unretained viewState,Whir
             {
                 // Tell the quad tree what we're up to
                 std::vector<Quadtree::Identifier> tilesToRemove;
-                quadtree->addTile(nodeInfo, tilesToRemove);
+                quadtree->addTile(&nodeInfo, tilesToRemove);
                             
                 [loader quadDisplayLayer:self loadTile:nodeInfo ];
                                 
@@ -371,7 +371,7 @@ float ScreenImportance(WhirlyGlobeViewState * __unsafe_unretained viewState,Whir
     for (int ix=0;ix<1<<minZoom;ix++)
         for (int iy=0;iy<1<<minZoom;iy++)
         {
-            Quadtree::NodeInfo thisNode = quadtree->generateNode(Quadtree::Identifier(ix,iy,minZoom));
+            Quadtree::NodeInfo thisNode = quadtree->generateNode(Quadtree::Identifier(ix, iy, minZoom));
             nodesForEval.insert(thisNode);
         }
 
