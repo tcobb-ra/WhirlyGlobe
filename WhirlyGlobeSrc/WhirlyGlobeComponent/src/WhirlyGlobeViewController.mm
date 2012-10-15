@@ -343,10 +343,21 @@ using namespace WhirlyGlobe;
     return newLayer;
 }
 
-- (WGViewControllerLayer *)addQuadEarthLayerWithRemoteSource:(NSString *)baseURL imageExt:(NSString *)ext cache:(NSString *)cacheDir minZoom:(int)minZoom maxZoom:(int)maxZoom;
+- (WGViewControllerLayer *)addQuadEarthLayerWithRemoteSource:(NSString *)baseURL imageExt:(NSString *)ext cache:(NSString *)cacheDir minZoom:(int)minZoom maxZoom:(int)maxZoom
 {
     WGQuadEarthWithRemoteTiles *newLayer = [[WGQuadEarthWithRemoteTiles alloc] initWithLayerThread:layerThread scene:globeScene renderer:sceneRenderer baseURL:baseURL ext:ext minZoom:minZoom maxZoom:maxZoom handleEdges:sceneRenderer.zBuffer];
     if (!newLayer)
+        return nil;
+    newLayer.cacheDir = cacheDir;
+    [userLayers addObject:newLayer];
+    
+    return nil;
+}
+
+- (WGViewControllerLayer *)addQuadEarthLayerWithMetadataURL:(NSString *)metadataURL imageExt:(NSString *)ext cache:(NSString *)cacheDir minZoom:(int)minZoom maxZoom:(int)maxZoom andImageURLBuilder:(NSString *(^)(NSData *, NSString *))urlBuilder
+{
+    WGQuadEarthWithRemoteTiles *newLayer = [[WGQuadEarthWithRemoteTiles alloc] initWithLayerThread:layerThread scene:globeScene renderer:sceneRenderer minZoom:minZoom maxZoom:maxZoom handleEdges:sceneRenderer.zBuffer metadataURL:metadataURL imageExtension:ext imageURLBuilder:urlBuilder];
+    if(!newLayer)
         return nil;
     newLayer.cacheDir = cacheDir;
     [userLayers addObject:newLayer];

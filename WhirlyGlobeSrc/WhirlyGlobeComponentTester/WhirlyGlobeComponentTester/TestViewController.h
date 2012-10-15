@@ -11,7 +11,14 @@
 #import "ConfigViewController.h"
 
 // The various base layers we know about
-typedef enum {BlueMarbleSingleResLocal,GeographyClassMBTilesLocal,StamenWatercolorRemote,OpenStreetmapRemote,MaxBaseLayers} BaseLayer;
+typedef NS_ENUM(NSUInteger, BaseLayer) {
+    BlueMarbleSingleResLocal,
+    GeographyClassMBTilesLocal,
+    StamenWatercolorRemote,
+    OpenStreetmapRemote,
+    BingMapsRemote,
+    MaxBaseLayers
+};
 
 /** The Test View Controller brings up the WhirlyGlobe Component
     and allows the user to test various functionality.

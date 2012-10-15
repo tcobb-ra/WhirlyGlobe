@@ -688,7 +688,15 @@ static const float SkirtFactor = 0.95;
 
     tileSet.insert(newTile);
     numFetches++;
-    [dataSource quadTileLoader:self startFetchForLevel:tileInfo.ident.level col:tileInfo.ident.x row:tileInfo.ident.y];
+    
+    NSString *quadKey = [NSString stringWithCString:tileInfo.quadKey encoding:NSUTF8StringEncoding];
+    NSLog(@"\nlevel:%d x:%d y:%d\nquadKey:%@", tileInfo.ident.level, tileInfo.ident.x, tileInfo.ident.y, quadKey);
+    
+    if([dataSource respondsToSelector:@selector(quadTileLoader:startFetchForLevel:col:row:)])
+        [dataSource quadTileLoader:self startFetchForLevel:tileInfo.ident.level col:tileInfo.ident.x row:tileInfo.ident.y];
+    else if([dataSource respondsToSelector:@selector(quadTileLoader:startFetchForLevel:col:row:withQuadKey:)])
+        [dataSource quadTileLoader:self startFetchForLevel:tileInfo.ident.level col:tileInfo.ident.x row:tileInfo.ident.y
+                       withQuadKey:quadKey];
 }
 
 // Check if we're in the process of loading the given tile
