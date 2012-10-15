@@ -23,15 +23,11 @@
 #import "TileQuadLoader.h"
 
 /** Network Tile Quad Source.
-    This implements a tile source for the standard http level/x/y
-    image hiearachy.
+ This implements a tile source for the standard http level/x/y
+ image hiearachy.
  */
 @interface WhirlyGlobeNetworkTileQuadSource : NSObject<WhirlyGlobeQuadDataStructure,WhirlyGlobeQuadTileImageDataSource>
 {
-    /// Where we're fetching from
-    NSString *baseURL;
-    /// Image extension
-    NSString *ext;
     /// Spherical Mercator coordinate system, for the tiles
     WhirlyKit::SphericalMercatorCoordSystem *coordSys;
     /// Bounds in Spherical Mercator
@@ -42,19 +38,21 @@
     /// Number of simultaneous fetches.  Defaults to 4.
     int numSimultaneous;
     /// Size of a tile in pixels square.  256 is the usual.
-    int pixelsPerTile;   
+    int pixelsPerTile;
     /// Location of cache, if set
     NSString *cacheDir;
+    /// Image extension
+    NSString *ext;
 }
 
 @property (nonatomic,assign) int numSimultaneous;
 @property (nonatomic,retain) NSString *cacheDir;
 
-/// Initialize with the base URL and image extension (e.g. png, jpg)
-- (id)initWithBaseURL:(NSString *)base ext:(NSString *)imageExt;
+- (id)initWithImageExtenstion:(NSString *)imageExtension;
 
 - (void)setMinZoom:(int)zoom;
 - (void)setMaxZoom:(int)zoom;
 
-@end
+- (void)tileUpdate:(NSArray *)args;
 
+@end

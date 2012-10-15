@@ -21,7 +21,25 @@
     self = [super init];
     if (self)
     {
-        dataSource = [[WhirlyGlobeNetworkTileQuadSource alloc] initWithBaseURL:baseURL ext:ext];
+        dataSource = [[WhirlyGlobeNetworkTileQuadSourceSlippyMaps alloc] initWithBaseURL:baseURL ext:ext];
+        dataSource.minZoom = minZoom;
+        dataSource.maxZoom = maxZoom;
+        // Note: Should make this flextible
+        dataSource.numSimultaneous = 8;
+        tileLoader = [[WhirlyGlobeQuadTileLoader alloc] initWithDataSource:dataSource];
+        tileLoader.ignoreEdgeMatching = !edges;
+        quadLayer = [[WhirlyGlobeQuadDisplayLayer alloc] initWithDataSource:dataSource loader:tileLoader renderer:renderer];
+        [layerThread addLayer:quadLayer];
+    }
+    
+    return self;
+}
+
+- (id)initWithLayerThread:(WhirlyKitLayerThread *)layerThread scene:(WhirlyGlobe::GlobeScene *)globeScene renderer:(WhirlyKitSceneRendererES1 *)renderer minZoom:(int)minZoom maxZoom:(int)maxZoom handleEdges:(bool)edges metadataURL:(NSString *)metadataURL imageExtension:(NSString *)imageExtension imageURLBuilder:(WGImageURLBuilder)imageURLBuilder
+{
+    if(self = [super init])
+    {
+        dataSource = [[WhirlyGlobeNetworkTileQuadSourceQuadKey alloc] initWithMetadataURL:metadataURL andImageExtension:imageExtension andImageURLBuilder:imageURLBuilder];
         dataSource.minZoom = minZoom;
         dataSource.maxZoom = maxZoom;
         // Note: Should make this flextible

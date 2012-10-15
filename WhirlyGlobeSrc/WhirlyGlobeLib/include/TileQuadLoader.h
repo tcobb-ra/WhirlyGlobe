@@ -101,13 +101,17 @@ typedef std::set<LoadedTile *,LoadedTileSorter> LoadedTileSet;
     to put on top of the simple geometry created by the quad tile loader.
  */
 @protocol WhirlyGlobeQuadTileImageDataSource<NSObject>
+
 /// Number of simultaneous fetches this data source can support.
 /// You can change this on the fly, but it won't cancel outstanding fetches.
 - (int)maxSimultaneousFetches;
 
 /// The quad loader is letting us know to start loading the image.
 /// We'll call the loader back with the image when it's ready
+@optional
 - (void)quadTileLoader:(WhirlyGlobeQuadTileLoader *)quadLoader startFetchForLevel:(int)level col:(int)col row:(int)row;
+- (void)quadTileLoader:(WhirlyGlobeQuadTileLoader *)quadLoader startFetchForLevel:(int)level col:(int)col row:(int)row withQuadKey:(NSString *)quadKey;
+
 @end
 
 /** The Globe Quad Tile Loader responds to the Quad Loader protocol and

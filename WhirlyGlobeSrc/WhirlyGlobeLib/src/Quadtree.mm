@@ -194,7 +194,7 @@ void Quadtree::addTile(NodeInfo *nodeInfo, std::vector<Identifier> &tilesRemoved
     node->parent = parent;
     if (parent)
         node->parent->addChild(this,node);
-    size_t numChars = (nodeInfo->ident.level + 2); // level is zero-indexed, key needs at least 1 char (+1) and a null-terminator (+1)
+    size_t numChars = (nodeInfo->ident.level + 1); // level is zero-indexed, key needs a null-terminator (+1)
     node->quadKey = (char *)calloc(numChars, sizeof(char));
     nodeInfo->quadKey = node->quadKey;
     nodeInfo->ident.buildQuadKey(node->quadKey);
@@ -240,11 +240,10 @@ void Quadtree::Identifier::buildQuadKey(char *quadKey)
     const uint rowDelta = 1;
     const uint columnDelta = 2;
     
-    uint boundary = level + 1;
-    for(int index = 0 ; index < boundary ; index++)
+    for(int index = 0 ; index < level ; index++)
     {
         uint digitOffset = 0;
-        uint mask = 1 << (level - index);
+        uint mask = 1 << (level - 1 - index);
         if(x & mask)
             digitOffset += rowDelta;
         if(y & mask)

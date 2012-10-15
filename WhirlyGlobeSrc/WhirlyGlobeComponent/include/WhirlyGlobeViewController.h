@@ -172,7 +172,9 @@
 - (WGViewControllerLayer *)addQuadEarthLayerWithMBTiles:(NSString *)name;
 
 /// Add a quad tree paged earth layer with 
-- (WGViewControllerLayer *)addQuadEarthLayerWithRemoteSource:(NSString *)baseURL imageExt:(NSString *)ext cache:(NSString *)cachdDir minZoom:(int)minZoom maxZoom:(int)maxZoom;
+- (WGViewControllerLayer *)addQuadEarthLayerWithRemoteSource:(NSString *)baseURL imageExt:(NSString *)ext cache:(NSString *)cacheDir minZoom:(int)minZoom maxZoom:(int)maxZoom;
+
+- (WGViewControllerLayer *)addQuadEarthLayerWithMetadataURL:(NSString *)metadataURL imageExt:(NSString *)ext cache:(NSString *)cacheDir minZoom:(int)minZoom maxZoom:(int)maxZoom andImageURLBuilder:(NSString *(^)(NSData *metadataData, NSString *quadKey))urlBuilder;
 
 /// Add visual defaults for the screen markers
 - (void)setScreenMarkerDesc:(NSDictionary *)desc;

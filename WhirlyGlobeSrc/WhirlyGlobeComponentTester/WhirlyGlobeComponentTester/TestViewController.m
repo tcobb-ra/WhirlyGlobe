@@ -197,6 +197,35 @@ LocationInfo locations[NumLocations] =
             vecWidth = 2.0;
         }
             break;
+        case BingMapsRemote:
+        {
+            NSString *thisCacheDir = [NSString stringWithFormat:@"%@/bingtiles/", cacheDir];
+            NSError *error = nil;
+            [[NSFileManager defaultManager] createDirectoryAtPath:thisCacheDir withIntermediateDirectories:YES attributes:nil error:&error];
+            
+            [globeViewC addQuadEarthLayerWithMetadataURL:@"doesn't matter at the moment" imageExt:@"jpg" cache:thisCacheDir minZoom:0 maxZoom:12 andImageURLBuilder:^NSString *(NSData *metadataData, NSString *quadKey)
+            {
+                NSError *error = nil;
+                NSDictionary *metadata = [NSJSONSerialization JSONObjectWithData:metadataData options:0 error:&error];
+                
+                NSDictionary *resources = metadata[@"resourceSets"][0][@"resources"][0];
+                NSArray *imageURLSubdomains = resources[@"imageUrlSubdomains"];
+                
+                NSMutableString *imageURL = [resources[@"imageUrl"] mutableCopy];
+                [imageURL replaceOccurrencesOfString:@"{subdomain}" withString:imageURLSubdomains[0] options:0 range:NSMakeRange(0, [imageURL length])];
+                [imageURL replaceOccurrencesOfString:@"{quadkey}" withString:quadKey options:0 range:NSMakeRange(0, [imageURL length])];
+                
+                return imageURL;
+            }];
+            
+            screenLabelColor = [UIColor blackColor];
+            screenLabelBackColor = [UIColor whiteColor];
+            labelColor = [UIColor blackColor];
+            labelBackColor = [UIColor whiteColor];
+            vecColor = [UIColor brownColor];
+            vecWidth = 2.0;
+        }
+            break;
         default:
             break;
     }
