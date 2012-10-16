@@ -322,11 +322,11 @@
 		FBDA6EC7162C6EC600BF0C4B /* NetworkTileQuadSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkTileQuadSource.h; sourceTree = "<group>"; };
 		FBDA6ECC162C714F00BF0C4B /* NetworkTileQuadSourceQuadKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkTileQuadSourceQuadKey.h; sourceTree = "<group>"; };
 		FBDA6ECD162C717300BF0C4B /* NetworkTileQuadSourceQuadKey.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NetworkTileQuadSourceQuadKey.mm; sourceTree = "<group>"; };
-		FBDA6ED8162CAEFB00BF0C4B /* dbfopen.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = dbfopen.c; path = ../../Dependencies/shapelib/dbfopen.c; sourceTree = "<group>"; };
-		FBDA6ED9162CAEFB00BF0C4B /* safileio.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = safileio.c; path = ../../Dependencies/shapelib/safileio.c; sourceTree = "<group>"; };
-		FBDA6EDA162CAEFB00BF0C4B /* shpopen.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = shpopen.c; path = ../../Dependencies/shapelib/shpopen.c; sourceTree = "<group>"; };
-		FBDA6EDE162CAF3C00BF0C4B /* clipper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = clipper.cpp; path = ../../../Dependencies/clipper/cpp/clipper.cpp; sourceTree = "<group>"; };
-		FBDA6EE0162CAF8400BF0C4B /* shapefil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = shapefil.h; path = ../../Dependencies/shapelib/shapefil.h; sourceTree = "<group>"; };
+		FBDA6ED8162CAEFB00BF0C4B /* dbfopen.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = dbfopen.c; path = shapelib/dbfopen.c; sourceTree = LibraryDependencies; };
+		FBDA6ED9162CAEFB00BF0C4B /* safileio.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = safileio.c; path = shapelib/safileio.c; sourceTree = LibraryDependencies; };
+		FBDA6EDA162CAEFB00BF0C4B /* shpopen.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = shpopen.c; path = shapelib/shpopen.c; sourceTree = LibraryDependencies; };
+		FBDA6EDE162CAF3C00BF0C4B /* clipper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = clipper.cpp; path = clipper/cpp/clipper.cpp; sourceTree = LibraryDependencies; };
+		FBDA6EE0162CAF8400BF0C4B /* shapefil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = shapefil.h; path = shapelib/shapefil.h; sourceTree = LibraryDependencies; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
