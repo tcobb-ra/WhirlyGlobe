@@ -25,3 +25,4 @@
 #import <WGScreenMarker.h>
 #import <WGViewTracker.h>
 #import <WhirlyGlobeViewController.h>
+#import <WhirlyGlobeViewControllerLayer.h>

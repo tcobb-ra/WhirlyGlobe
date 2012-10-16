@@ -18,13 +18,19 @@
  *
  */
 
-#import "WGViewControllerLayer_private.h"
+#import "WGViewControllerLayer.h"
+#import <WhirlyGlobe.h>
 
 @implementation WGViewControllerLayer
 
-- (void)cleanupLayers:(WhirlyKitLayerThread *)layerThread scene:(WhirlyGlobe::GlobeScene *)globeScene;
+- (void)startOnLayerThread:(WhirlyKitLayerThread *)layerThread withRenderer:(WhirlyKitSceneRendererES1 *)renderer
 {
-    
+    [layerThread addLayer:self.mainLayer];
+}
+
+- (void)removeLayerFromThread:(WhirlyKitLayerThread *)layerThread;
+{
+    [layerThread removeLayer:self.mainLayer];
 }
 
 @end

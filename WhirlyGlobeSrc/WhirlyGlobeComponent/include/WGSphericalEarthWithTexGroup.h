@@ -1,5 +1,5 @@
 /*
- *  WGViewControllerLayer_private.h
+ *  WGSphericalEarthWithTexGroup.h
  *  WhirlyGlobeComponent
  *
  *  Created by Steve Gifford on 7/21/12.
@@ -18,14 +18,16 @@
  *
  */
 
-#import <Foundation/Foundation.h>
-#import <WhirlyGlobe.h>
+#import "WGViewControllerLayer.h"
 
-/// Used to keep track of resources for a layer the user has asked to be created.
-/// Don't mess with these directly.
-@interface WGViewControllerLayer : NSObject
+@class WhirlyGlobeSphericalEarthLayer;
 
-/// Remove resources associated with this layer
-- (void)cleanupLayers:(WhirlyKitLayerThread *)layerThread scene:(WhirlyGlobe::GlobeScene *)globeScene;
+@interface WGSphericalEarthWithTexGroup : WGViewControllerLayer
+
+@property (nonatomic, readonly) WhirlyGlobeSphericalEarthLayer *earthLayer;
+
+/// Set up a spherical earth layer with a texture group.
+/// Returns nil on failure.
+- (id)initWithTextureGroupName:(NSString *)textureGroupName;
 
 @end
