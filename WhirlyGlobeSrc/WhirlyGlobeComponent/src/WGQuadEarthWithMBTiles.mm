@@ -6,42 +6,36 @@
 //  Copyright (c) 2012 mousebird consulting. All rights reserved.
 //
 
-#import "WGQuadEarthWithMBTiles_private.h"
+#import "WGQuadEarthWithMBTiles.h"
+#import <WhirlyGlobe.h>
+
+@interface WGQuadEarthWithMBTiles ()
+
+@property (strong, nonatomic) WhirlyGlobeQuadTileLoader *tileLoader;
+@property (strong, nonatomic) WhirlyMBTileQuadSource *dataSource;
+
+@end
 
 @implementation WGQuadEarthWithMBTiles
-{
-    WhirlyGlobeQuadTileLoader *tileLoader;
-    WhirlyGlobeQuadDisplayLayer *quadLayer;
-    WhirlyMBTileQuadSource *dataSource;
-}
 
-- (id)initWithWithLayerThread:(WhirlyKitLayerThread *)layerThread scene:(WhirlyGlobe::GlobeScene *)globeScene renderer:(WhirlyKitSceneRendererES1 *)renderer mbTiles:(NSString *)mbName handleEdges:(bool)edges
+- (id)initWithMBTilesArchiveName:(NSString *)archiveName
 {
-    self = [super init];
-    if (self)
+    if(self = [super init])
     {
-        NSString *infoPath = [[NSBundle mainBundle] pathForResource:mbName ofType:@"mbtiles"];
+        NSString *infoPath = [[NSBundle mainBundle] pathForResource:archiveName ofType:@"mbtiles"];
         if (!infoPath)
-        {
-            self = nil;
             return nil;
-        }
-        dataSource = [[WhirlyMBTileQuadSource alloc] initWithPath:infoPath];
-        tileLoader = [[WhirlyGlobeQuadTileLoader alloc] initWithDataSource:dataSource];
-        quadLayer = [[WhirlyGlobeQuadDisplayLayer alloc] initWithDataSource:dataSource loader:tileLoader renderer:renderer];
-        tileLoader.ignoreEdgeMatching = !edges;
-        [layerThread addLayer:quadLayer];
+        self.dataSource = [[WhirlyMBTileQuadSource alloc] initWithPath:infoPath];
+        self.tileLoader = [[WhirlyGlobeQuadTileLoader alloc] initWithDataSource:self.dataSource];
     }
-    
     return self;
 }
 
-- (void)cleanupLayers:(WhirlyKitLayerThread *)layerThread scene:(WhirlyGlobe::GlobeScene *)globeScene
+- (void)startOnLayerThread:(WhirlyKitLayerThread *)layerThread withRenderer:(WhirlyKitSceneRendererES1 *)renderer
 {
-    [layerThread removeLayer:quadLayer];
-    tileLoader = nil;
-    quadLayer = nil;
-    dataSource = nil;
+    self.mainLayer = [[WhirlyGlobeQuadDisplayLayer alloc] initWithDataSource:self.dataSource loader:self.tileLoader renderer:renderer];
+    self.tileLoader.ignoreEdgeMatching = !renderer.zBuffer;
+    [super startOnLayerThread:layerThread withRenderer:renderer];
 }
 
 @end

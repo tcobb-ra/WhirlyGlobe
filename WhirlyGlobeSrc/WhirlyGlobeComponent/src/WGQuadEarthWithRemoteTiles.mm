@@ -7,68 +7,61 @@
 //
 
 
-#import "WGQuadEarthWithRemoteTiles_private.h"
+#import "WGQuadEarthWithRemoteTiles.h"
+#import <WhirlyGlobe.h>
+
+@interface WGQuadEarthWithRemoteTiles ()
+
+@property (strong, nonatomic) WhirlyGlobeQuadTileLoader *tileLoader;
+@property (strong, nonatomic) WhirlyGlobeNetworkTileQuadSource *dataSource;
+
+@end
 
 @implementation WGQuadEarthWithRemoteTiles
-{
-    WhirlyGlobeQuadTileLoader *tileLoader;
-    WhirlyGlobeQuadDisplayLayer *quadLayer;
-    WhirlyGlobeNetworkTileQuadSource *dataSource;
-}
 
-- (id)initWithLayerThread:(WhirlyKitLayerThread *)layerThread scene:(WhirlyGlobe::GlobeScene *)globeScene renderer:(WhirlyKitSceneRendererES1 *)renderer baseURL:(NSString *)baseURL ext:(NSString *)ext minZoom:(int)minZoom maxZoom:(int)maxZoom handleEdges:(bool)edges
-{
-    self = [super init];
-    if (self)
-    {
-        dataSource = [[WhirlyGlobeNetworkTileQuadSourceSlippyMaps alloc] initWithBaseURL:baseURL ext:ext];
-        dataSource.minZoom = minZoom;
-        dataSource.maxZoom = maxZoom;
-        // Note: Should make this flextible
-        dataSource.numSimultaneous = 8;
-        tileLoader = [[WhirlyGlobeQuadTileLoader alloc] initWithDataSource:dataSource];
-        tileLoader.ignoreEdgeMatching = !edges;
-        quadLayer = [[WhirlyGlobeQuadDisplayLayer alloc] initWithDataSource:dataSource loader:tileLoader renderer:renderer];
-        [layerThread addLayer:quadLayer];
-    }
-    
-    return self;
-}
-
-- (id)initWithLayerThread:(WhirlyKitLayerThread *)layerThread scene:(WhirlyGlobe::GlobeScene *)globeScene renderer:(WhirlyKitSceneRendererES1 *)renderer minZoom:(int)minZoom maxZoom:(int)maxZoom handleEdges:(bool)edges metadataURL:(NSString *)metadataURL imageExtension:(NSString *)imageExtension imageURLBuilder:(WGImageURLBuilder)imageURLBuilder
+- (id)initWithBaseURL:(NSString *)baseURL imageExtension:(NSString *)ext zoomRange:(NSRange)zoomRange
 {
     if(self = [super init])
     {
-        dataSource = [[WhirlyGlobeNetworkTileQuadSourceQuadKey alloc] initWithMetadataURL:metadataURL andImageExtension:imageExtension andImageURLBuilder:imageURLBuilder];
-        dataSource.minZoom = minZoom;
-        dataSource.maxZoom = maxZoom;
-        // Note: Should make this flextible
-        dataSource.numSimultaneous = 8;
-        tileLoader = [[WhirlyGlobeQuadTileLoader alloc] initWithDataSource:dataSource];
-        tileLoader.ignoreEdgeMatching = !edges;
-        quadLayer = [[WhirlyGlobeQuadDisplayLayer alloc] initWithDataSource:dataSource loader:tileLoader renderer:renderer];
-        [layerThread addLayer:quadLayer];
+        self.dataSource = [[WhirlyGlobeNetworkTileQuadSourceSlippyMaps alloc] initWithBaseURL:baseURL ext:ext];
+        [self configureDataSource:self.dataSource withZoomRange:zoomRange];
     }
-    
     return self;
 }
 
-- (void)cleanupLayers:(WhirlyKitLayerThread *)layerThread scene:(WhirlyGlobe::GlobeScene *)globeScene
+- (id)initWithMetadataURL:(NSString *)metadataURL imageExtension:(NSString *)imageExtension zoomRange:(NSRange)zoomRange imageURLBuilder:(WGImageURLBuilder)imageURLBuilder
 {
-    [layerThread removeLayer:quadLayer];
-    tileLoader = nil;
-    quadLayer = nil;
-    dataSource = nil;
+    if(self = [super init])
+    {
+        self.dataSource = [[WhirlyGlobeNetworkTileQuadSourceQuadKey alloc] initWithMetadataURL:metadataURL andImageExtension:imageExtension andImageURLBuilder:imageURLBuilder];
+        [self configureDataSource:self.dataSource withZoomRange:zoomRange];
+    }
+    return self;
 }
 
-- (NSString *)cacheDir
+- (void)configureDataSource:(WhirlyGlobeNetworkTileQuadSource *)dataSource withZoomRange:(NSRange)zoomRange
 {
-    return dataSource.cacheDir;
+    dataSource.minZoom = zoomRange.location;
+    dataSource.maxZoom = zoomRange.location + zoomRange.length;
+    dataSource.numSimultaneous = 8;
 }
 
-- (void)setCacheDir:(NSString *)cacheDir
+- (void)startOnLayerThread:(WhirlyKitLayerThread *)layerThread withRenderer:(WhirlyKitSceneRendererES1 *)renderer
 {
-    dataSource.cacheDir = cacheDir;
+    self.tileLoader = [[WhirlyGlobeQuadTileLoader alloc] initWithDataSource:self.dataSource];
+    self.tileLoader.ignoreEdgeMatching = !renderer.zBuffer;
+    self.mainLayer = [[WhirlyGlobeQuadDisplayLayer alloc] initWithDataSource:self.dataSource loader:self.tileLoader renderer:renderer];
+    [super startOnLayerThread:layerThread withRenderer:renderer];
+}
+
+- (NSString *)cacheDirectory
+{
+    return self.dataSource.cacheDir;
+}
+
+- (void)setCacheDirectory:(NSString *)cacheDirectory
+{
+    self.dataSource.cacheDir = cacheDirectory;
 }
 
 @end

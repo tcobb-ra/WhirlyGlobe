@@ -27,6 +27,7 @@
 @class WGViewControllerLayer;
 @class WGComponentObject;
 @class WhirlyGlobeViewController;
+@protocol WGCacheableLayer;
 
 /// Use this hint to turn the zbuffer on or off.  Pass in an NSNumber boolean.  Takes effect on the next frame.
 #define kWGRenderHintZBuffer @"zbuffer"
@@ -165,16 +166,10 @@
 /// Set position and height at the same time
 - (void)setPosition:(WGCoordinate)newPos height:(float)height;
 
-/// Add a spherical earth layer with the given set of base images
-- (WGViewControllerLayer *)addSphericalEarthLayerWithImageSet:(NSString *)name;
-
-/// Add a quad tree paged earth layer with MapBox Tiles on top
-- (WGViewControllerLayer *)addQuadEarthLayerWithMBTiles:(NSString *)name;
-
-/// Add a quad tree paged earth layer with 
-- (WGViewControllerLayer *)addQuadEarthLayerWithRemoteSource:(NSString *)baseURL imageExt:(NSString *)ext cache:(NSString *)cacheDir minZoom:(int)minZoom maxZoom:(int)maxZoom;
-
-- (WGViewControllerLayer *)addQuadEarthLayerWithMetadataURL:(NSString *)metadataURL imageExt:(NSString *)ext cache:(NSString *)cacheDir minZoom:(int)minZoom maxZoom:(int)maxZoom andImageURLBuilder:(NSString *(^)(NSData *metadataData, NSString *quadKey))urlBuilder;
+- (void)startRenderingLayer:(WGViewControllerLayer *)layer;
+- (void)startRenderingLayer:(WGViewControllerLayer<WGCacheableLayer> *)layer withCacheDirectory:(NSString *)cacheDirectory;
+- (void)stopRenderingLayer:(WGViewControllerLayer *)layer;
+- (void)stopRenderingLayers;
 
 /// Add visual defaults for the screen markers
 - (void)setScreenMarkerDesc:(NSDictionary *)desc;

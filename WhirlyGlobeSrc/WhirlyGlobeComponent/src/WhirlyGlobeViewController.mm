@@ -20,14 +20,12 @@
 
 #import <WhirlyGlobe.h>
 #import "WhirlyGlobeViewController.h"
-#import "WGViewControllerLayer_private.h"
+#import "WGViewControllerLayer.h"
 #import "WGComponentObject_private.h"
 #import "WGInteractionLayer_private.h"
 #import "PanDelegateFixed.h"
 #import "PinchDelegateFixed.h"
-#import "WGSphericalEarthWithTexGroup_private.h"
-#import "WGQuadEarthWithMBTiles_private.h"
-#import "WGQuadEarthWithRemoteTiles_private.h"
+#import "WhirlyGlobeViewControllerLayer.h"
 
 using namespace Eigen;
 using namespace WhirlyKit;
@@ -299,18 +297,6 @@ using namespace WhirlyGlobe;
     return YES;
 }
 
-/// Add a spherical earth layer with the given set of base images
-- (WGViewControllerLayer *)addSphericalEarthLayerWithImageSet:(NSString *)name
-{
-    WGViewControllerLayer *newLayer = [[WGSphericalEarthWithTexGroup alloc] initWithWithLayerThread:layerThread scene:globeScene texGroup:name];
-    if (!newLayer)
-        return nil;
-    
-    [userLayers addObject:newLayer];
-    
-    return newLayer;
-}
-
 // Called when the earth layer finishes loading
 - (void)sphericalEarthLayerLoaded:(NSNotification *)note
 {
@@ -332,37 +318,30 @@ using namespace WhirlyGlobe;
         }
 }
 
-- (WGViewControllerLayer *)addQuadEarthLayerWithMBTiles:(NSString *)name
+- (void)startRenderingLayer:(WGViewControllerLayer *)layer
 {
-    WGViewControllerLayer *newLayer = [[WGQuadEarthWithMBTiles alloc] initWithWithLayerThread:layerThread scene:globeScene renderer:sceneRenderer mbTiles:name handleEdges:sceneRenderer.zBuffer];
-    if (!newLayer)
-        return nil;
-    
-    [userLayers addObject:newLayer];
-    
-    return newLayer;
+    [userLayers addObject:layer];
+    [layer startOnLayerThread:layerThread withRenderer:sceneRenderer];
 }
 
-- (WGViewControllerLayer *)addQuadEarthLayerWithRemoteSource:(NSString *)baseURL imageExt:(NSString *)ext cache:(NSString *)cacheDir minZoom:(int)minZoom maxZoom:(int)maxZoom
+- (void)startRenderingLayer:(WGViewControllerLayer<WGCacheableLayer> *)layer withCacheDirectory:(NSString *)cacheDirectory
 {
-    WGQuadEarthWithRemoteTiles *newLayer = [[WGQuadEarthWithRemoteTiles alloc] initWithLayerThread:layerThread scene:globeScene renderer:sceneRenderer baseURL:baseURL ext:ext minZoom:minZoom maxZoom:maxZoom handleEdges:sceneRenderer.zBuffer];
-    if (!newLayer)
-        return nil;
-    newLayer.cacheDir = cacheDir;
-    [userLayers addObject:newLayer];
-    
-    return newLayer;
+    layer.cacheDirectory = cacheDirectory;
+    [userLayers addObject:layer];
+    [layer startOnLayerThread:layerThread withRenderer:sceneRenderer];
 }
 
-- (WGViewControllerLayer *)addQuadEarthLayerWithMetadataURL:(NSString *)metadataURL imageExt:(NSString *)ext cache:(NSString *)cacheDir minZoom:(int)minZoom maxZoom:(int)maxZoom andImageURLBuilder:(NSString *(^)(NSData *, NSString *))urlBuilder
+- (void)stopRenderingLayer:(WGViewControllerLayer *)layer
 {
-    WGQuadEarthWithRemoteTiles *newLayer = [[WGQuadEarthWithRemoteTiles alloc] initWithLayerThread:layerThread scene:globeScene renderer:sceneRenderer minZoom:minZoom maxZoom:maxZoom handleEdges:sceneRenderer.zBuffer metadataURL:metadataURL imageExtension:ext imageURLBuilder:urlBuilder];
-    if(!newLayer)
-        return nil;
-    newLayer.cacheDir = cacheDir;
-    [userLayers addObject:newLayer];
-    
-    return newLayer;
+    [layer removeLayerFromThread:layerThread];
+    [userLayers removeObject:layer];
+}
+
+- (void)stopRenderingLayers
+{
+    for(WGViewControllerLayer *layer in userLayers)
+        [layer removeLayerFromThread:layerThread];
+    [userLayers removeAllObjects];
 }
 
 #pragma mark - Defaults and descriptions

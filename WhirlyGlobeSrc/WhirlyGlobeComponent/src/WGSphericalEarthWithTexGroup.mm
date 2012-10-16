@@ -18,44 +18,35 @@
  *
  */
 
-#import "WGSphericalEarthWithTexGroup_private.h"
+#import "WGSphericalEarthWithTexGroup.h"
+#import <WhirlyGlobe.h>
 
 using namespace Eigen;
 using namespace WhirlyKit;
 using namespace WhirlyGlobe;
 
+@interface WGSphericalEarthWithTexGroup ()
+@property WhirlyKitTextureGroup *textureGroup;
+@end
+
 @implementation WGSphericalEarthWithTexGroup
-{
-    WhirlyGlobeSphericalEarthLayer *earthLayer;
-    WhirlyKitTextureGroup *texGroup;
-}
 
-@synthesize earthLayer;
-
-- (id)initWithWithLayerThread:(WhirlyKitLayerThread *)layerThread scene:(WhirlyGlobe::GlobeScene *)globeScene texGroup:(NSString *)texGroupName
+- (id)initWithTextureGroupName:(NSString *)textureGroupName
 {
-    self = [super init];
-    if (self)
+    if(self = [super init])
     {
-        NSString *infoPath = [[NSBundle mainBundle] pathForResource:texGroupName ofType:@"plist"];
-        texGroup = [[WhirlyKitTextureGroup alloc] initWithInfo:infoPath];
-        if (!texGroup)
-        {
-            self = nil;
+        NSString *infoPath = [[NSBundle mainBundle] pathForResource:textureGroupName ofType:@"plist"];
+        self.textureGroup = [[WhirlyKitTextureGroup alloc] initWithInfo:infoPath];
+        if(!self.textureGroup)
             return nil;
-        }
-        earthLayer = [[WhirlyGlobeSphericalEarthLayer alloc] initWithTexGroup:texGroup];
-        [layerThread addLayer:earthLayer];
+        self.mainLayer = [[WhirlyGlobeSphericalEarthLayer alloc] initWithTexGroup:self.textureGroup];
     }
-    
     return self;
 }
 
-- (void)cleanupLayers:(WhirlyKitLayerThread *)layerThread scene:(WhirlyGlobe::GlobeScene *)globeScene
+- (WhirlyGlobeSphericalEarthLayer *)earthLayer
 {
-    [layerThread removeLayer:earthLayer];
-    earthLayer = nil;
-    texGroup = nil;
+    return (WhirlyGlobeSphericalEarthLayer *)self.mainLayer;
 }
 
 @end
