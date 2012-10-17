@@ -53,7 +53,9 @@ lipo -create build/Release-iphoneos/libWhirlyGlobeComponent.a build/Release-ipho
 # lipo -create "${PROJECT_DIR}/build/${BUILD_STYLE}-iphoneos/lib${PROJECT_NAME}.a" "${PROJECT_DIR}/build/${BUILD_STYLE}-iphonesimulator/lib${PROJECT_NAME}.a" -o "$FRAMEWORK_DIR/Versions/Current/$FRAMEWORK_NAME"
 
 echo "Framework: Copying assets into current version..."
+WG_LIB_HEADERS=../WhirlyGlobeLib/WhirlyGlobe.framework/Headers
 cp include/*.h $FRAMEWORK_DIR/Headers/
+cp $WG_LIB_HEADERS/NetworkTileQuadSourceDelegate.h $FRAMEWORK_DIR/Headers/
 
 #replace placeholder in plist with project name
 cp framework_info.plist $FRAMEWORK_DIR/Resources/Info.plist

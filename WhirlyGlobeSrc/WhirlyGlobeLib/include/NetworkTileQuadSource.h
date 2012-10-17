@@ -21,11 +21,13 @@
 #import "GlobeQuadDisplayLayer.h"
 #import "SphericalMercator.h"
 #import "TileQuadLoader.h"
+#import "NetworkTileQuadSourceDelegate.h"
 
-/** Network Tile Quad Source.
- This implements a tile source for the standard http level/x/y
- image hiearachy.
- */
+@protocol WhirlyGlobeDelegatedNetworkTileQuadSource
+@property (weak, nonatomic) id<WGNetworkTileDelegate> delegate;
+@end
+
+// superclass for tile source for the standard http level/x/y or quadKey image hiearachy.
 @interface WhirlyGlobeNetworkTileQuadSource : NSObject<WhirlyGlobeQuadDataStructure,WhirlyGlobeQuadTileImageDataSource>
 {
     /// Spherical Mercator coordinate system, for the tiles
@@ -48,7 +50,7 @@
 @property (nonatomic,assign) int numSimultaneous;
 @property (nonatomic,retain) NSString *cacheDir;
 
-- (id)initWithImageExtenstion:(NSString *)imageExtension;
+- (id)initWithImageExtension:(NSString *)imageExtension;
 
 - (void)setMinZoom:(int)zoom;
 - (void)setMaxZoom:(int)zoom;

@@ -6,6 +6,7 @@
 //
 //
 
+#import <NetworkTileQuadSourceDelegate.h>
 #import "WGSphericalEarthWithTexGroup.h"
 #import "WGQuadEarthWithMBTiles.h"
 #import "WGQuadEarthWithRemoteTiles.h"
