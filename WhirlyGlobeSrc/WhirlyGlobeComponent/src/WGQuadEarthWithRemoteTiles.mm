@@ -29,11 +29,11 @@
     return self;
 }
 
-- (id)initWithMetadataURL:(NSString *)metadataURL imageExtension:(NSString *)imageExtension zoomRange:(NSRange)zoomRange imageURLBuilder:(WGImageURLBuilder)imageURLBuilder
+- (id)initWithMetadataURL:(NSString *)metadataURL imageExtension:(NSString *)imageExtension zoomRange:(NSRange)zoomRange
 {
     if(self = [super init])
     {
-        self.dataSource = [[WhirlyGlobeNetworkTileQuadSourceQuadKey alloc] initWithMetadataURL:metadataURL andImageExtension:imageExtension andImageURLBuilder:imageURLBuilder];
+        self.dataSource = [[WhirlyGlobeNetworkTileQuadSourceMetadata alloc] initWithMetadataURL:metadataURL andImageExtension:imageExtension];
         [self configureDataSource:self.dataSource withZoomRange:zoomRange];
         self.tileLoader = [[WhirlyGlobeQuadTileLoader alloc] initWithDataSource:self.dataSource];
         self.tileLoader.coverPoles = true;
@@ -63,6 +63,12 @@
 - (void)setCacheDirectory:(NSString *)cacheDirectory
 {
     self.dataSource.cacheDir = cacheDirectory;
+}
+
+- (void)setNetworkDelegate:(id<WGNetworkTileDelegate>)delegate
+{
+    if([self.dataSource conformsToProtocol:@protocol(WhirlyGlobeDelegatedNetworkTileQuadSource)])
+        [(id<WhirlyGlobeDelegatedNetworkTileQuadSource>)self.dataSource setDelegate:delegate];
 }
 
 @end

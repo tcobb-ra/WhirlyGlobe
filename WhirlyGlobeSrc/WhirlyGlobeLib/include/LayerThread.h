@@ -1,3 +1,4 @@
+
 /*
  *  LayerThread.h
  *  WhirlyGlobeLib

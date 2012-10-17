@@ -27,7 +27,7 @@ using namespace WhirlyGlobe;
 
 - (id)initWithBaseURL:(NSString *)base ext:(NSString *)imageExt
 {
-    if(self = [super initWithImageExtenstion:imageExt])
+    if(self = [super initWithImageExtension:imageExt])
         baseURL = base;
     return self;
 }

@@ -31,4 +31,3 @@
 - (id)initWithBaseURL:(NSString *)base ext:(NSString *)imageExt;
 
 @end
-

@@ -19,13 +19,10 @@
 
 #import "NetworkTileQuadSource.h"
 
-typedef NSString *(^WGImageURLBuilder)(NSData *metadataData, NSString *quadKey);
+@interface WhirlyGlobeNetworkTileQuadSourceMetadata : WhirlyGlobeNetworkTileQuadSource <WhirlyGlobeDelegatedNetworkTileQuadSource>
 
-@interface WhirlyGlobeNetworkTileQuadSourceQuadKey : WhirlyGlobeNetworkTileQuadSource
+@property (weak, nonatomic) id<WGNetworkTileMetadataDelegate> delegate;
 
-@property (strong, nonatomic) NSString *metadataURL;
-@property (copy, nonatomic) WGImageURLBuilder imageURLBuilder;
-
-- (id)initWithMetadataURL:(NSString *)metadataURL andImageExtension:(NSString *)imageExtension andImageURLBuilder:(WGImageURLBuilder)imageURLBuilder;
+- (id)initWithMetadataURL:(NSString *)metadataURL andImageExtension:(NSString *)imageExtension;
 
 @end

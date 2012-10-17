@@ -155,12 +155,14 @@
 		2BFC34DC13CBFA9A00403799 /* DrawCost.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2BFC34DA13CBFA9A00403799 /* DrawCost.mm */; };
 		FBDA6EC8162C6EC600BF0C4B /* NetworkTileQuadSource.mm in Sources */ = {isa = PBXBuildFile; fileRef = FBDA6EC6162C6EC600BF0C4B /* NetworkTileQuadSource.mm */; };
 		FBDA6EC9162C6EC600BF0C4B /* NetworkTileQuadSource.h in Headers */ = {isa = PBXBuildFile; fileRef = FBDA6EC7162C6EC600BF0C4B /* NetworkTileQuadSource.h */; };
-		FBDA6ECE162C717300BF0C4B /* NetworkTileQuadSourceQuadKey.mm in Sources */ = {isa = PBXBuildFile; fileRef = FBDA6ECD162C717300BF0C4B /* NetworkTileQuadSourceQuadKey.mm */; };
+		FBDA6ECE162C717300BF0C4B /* NetworkTileQuadSourceMetadata.mm in Sources */ = {isa = PBXBuildFile; fileRef = FBDA6ECD162C717300BF0C4B /* NetworkTileQuadSourceMetadata.mm */; };
 		FBDA6EDB162CAEFB00BF0C4B /* dbfopen.c in Sources */ = {isa = PBXBuildFile; fileRef = FBDA6ED8162CAEFB00BF0C4B /* dbfopen.c */; };
 		FBDA6EDC162CAEFB00BF0C4B /* safileio.c in Sources */ = {isa = PBXBuildFile; fileRef = FBDA6ED9162CAEFB00BF0C4B /* safileio.c */; };
 		FBDA6EDD162CAEFB00BF0C4B /* shpopen.c in Sources */ = {isa = PBXBuildFile; fileRef = FBDA6EDA162CAEFB00BF0C4B /* shpopen.c */; };
 		FBDA6EDF162CAF3C00BF0C4B /* clipper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBDA6EDE162CAF3C00BF0C4B /* clipper.cpp */; };
 		FBDA6EE1162CAF8400BF0C4B /* shapefil.h in Headers */ = {isa = PBXBuildFile; fileRef = FBDA6EE0162CAF8400BF0C4B /* shapefil.h */; };
+		FBDA6F6C162EF8D500BF0C4B /* NetworkTileQuadSourceExternal.h in Headers */ = {isa = PBXBuildFile; fileRef = FBDA6F6A162EF8D400BF0C4B /* NetworkTileQuadSourceExternal.h */; };
+		FBDA6F6D162EF8D500BF0C4B /* NetworkTileQuadSourceExternal.mm in Sources */ = {isa = PBXBuildFile; fileRef = FBDA6F6B162EF8D500BF0C4B /* NetworkTileQuadSourceExternal.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -318,15 +320,18 @@
 		2BFC34DA13CBFA9A00403799 /* DrawCost.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; path = DrawCost.mm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		AA747D9E0F9514B9006C5449 /* WhirlyGlobeLib_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhirlyGlobeLib_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		FBDA6EC6162C6EC600BF0C4B /* NetworkTileQuadSource.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = NetworkTileQuadSource.mm; path = ../include/NetworkTileQuadSource.mm; sourceTree = "<group>"; };
+		FBDA6EC6162C6EC600BF0C4B /* NetworkTileQuadSource.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NetworkTileQuadSource.mm; sourceTree = "<group>"; };
 		FBDA6EC7162C6EC600BF0C4B /* NetworkTileQuadSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkTileQuadSource.h; sourceTree = "<group>"; };
-		FBDA6ECC162C714F00BF0C4B /* NetworkTileQuadSourceQuadKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkTileQuadSourceQuadKey.h; sourceTree = "<group>"; };
-		FBDA6ECD162C717300BF0C4B /* NetworkTileQuadSourceQuadKey.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NetworkTileQuadSourceQuadKey.mm; sourceTree = "<group>"; };
-		FBDA6ED8162CAEFB00BF0C4B /* dbfopen.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = dbfopen.c; path = shapelib/dbfopen.c; sourceTree = LibraryDependencies; };
-		FBDA6ED9162CAEFB00BF0C4B /* safileio.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = safileio.c; path = shapelib/safileio.c; sourceTree = LibraryDependencies; };
-		FBDA6EDA162CAEFB00BF0C4B /* shpopen.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = shpopen.c; path = shapelib/shpopen.c; sourceTree = LibraryDependencies; };
-		FBDA6EDE162CAF3C00BF0C4B /* clipper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = clipper.cpp; path = clipper/cpp/clipper.cpp; sourceTree = LibraryDependencies; };
-		FBDA6EE0162CAF8400BF0C4B /* shapefil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = shapefil.h; path = shapelib/shapefil.h; sourceTree = LibraryDependencies; };
+		FBDA6ECC162C714F00BF0C4B /* NetworkTileQuadSourceMetadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkTileQuadSourceMetadata.h; sourceTree = "<group>"; };
+		FBDA6ECD162C717300BF0C4B /* NetworkTileQuadSourceMetadata.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NetworkTileQuadSourceMetadata.mm; sourceTree = "<group>"; };
+		FBDA6ED8162CAEFB00BF0C4B /* dbfopen.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = dbfopen.c; path = ../../Dependencies/shapelib/dbfopen.c; sourceTree = "<group>"; };
+		FBDA6ED9162CAEFB00BF0C4B /* safileio.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = safileio.c; path = ../../Dependencies/shapelib/safileio.c; sourceTree = "<group>"; };
+		FBDA6EDA162CAEFB00BF0C4B /* shpopen.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = shpopen.c; path = ../../Dependencies/shapelib/shpopen.c; sourceTree = "<group>"; };
+		FBDA6EDE162CAF3C00BF0C4B /* clipper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = clipper.cpp; path = ../../../Dependencies/clipper/cpp/clipper.cpp; sourceTree = "<group>"; };
+		FBDA6EE0162CAF8400BF0C4B /* shapefil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = shapefil.h; path = ../../Dependencies/shapelib/shapefil.h; sourceTree = "<group>"; };
+		FBDA6F6A162EF8D400BF0C4B /* NetworkTileQuadSourceExternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkTileQuadSourceExternal.h; sourceTree = "<group>"; };
+		FBDA6F6B162EF8D500BF0C4B /* NetworkTileQuadSourceExternal.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NetworkTileQuadSourceExternal.mm; sourceTree = "<group>"; };
+		FBDA6F6E162EFCD200BF0C4B /* NetworkTileQuadSourceDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkTileQuadSourceDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -543,7 +548,8 @@
 				2B774CCF154659A800BA79E4 /* MBTileQuadSource.mm */,
 				FBDA6EC6162C6EC600BF0C4B /* NetworkTileQuadSource.mm */,
 				2B5FA41A155DD84A00232E18 /* NetworkTileQuadSourceSlippyMaps.mm */,
-				FBDA6ECD162C717300BF0C4B /* NetworkTileQuadSourceQuadKey.mm */,
+				FBDA6ECD162C717300BF0C4B /* NetworkTileQuadSourceMetadata.mm */,
+				FBDA6F6B162EF8D500BF0C4B /* NetworkTileQuadSourceExternal.mm */,
 				2BF401B915C0B47C00B5BFD9 /* UpdateDisplayLayer.mm */,
 				2BF401BA15C0B47C00B5BFD9 /* ViewPlacementGenerator.mm */,
 				2B40467C15F9B4F400937923 /* GeometryLayer.mm */,
@@ -734,8 +740,10 @@
 				2B87302A154B535500AFEE25 /* TileQuadLoader.h */,
 				2B774CCC1546589300BA79E4 /* MBTileQuadSource.h */,
 				FBDA6EC7162C6EC600BF0C4B /* NetworkTileQuadSource.h */,
+				FBDA6F6E162EFCD200BF0C4B /* NetworkTileQuadSourceDelegate.h */,
 				2B5FA417155DD7A100232E18 /* NetworkTileQuadSourceSlippyMaps.h */,
-				FBDA6ECC162C714F00BF0C4B /* NetworkTileQuadSourceQuadKey.h */,
+				FBDA6ECC162C714F00BF0C4B /* NetworkTileQuadSourceMetadata.h */,
+				FBDA6F6A162EF8D400BF0C4B /* NetworkTileQuadSourceExternal.h */,
 				2BACE0611581010F00E3793D /* SceneGraphGenerator.h */,
 				2BF401BE15C0B49500B5BFD9 /* UpdateDisplayLayer.h */,
 				2BF401BF15C0B49500B5BFD9 /* ViewPlacementGenerator.h */,
@@ -948,6 +956,7 @@
 				2B40467815F9B4CB00937923 /* ActiveModel.h in Headers */,
 				2B40467B15F9B4D300937923 /* GeometryLayer.h in Headers */,
 				FBDA6EC9162C6EC600BF0C4B /* NetworkTileQuadSource.h in Headers */,
+				FBDA6F6C162EF8D500BF0C4B /* NetworkTileQuadSourceExternal.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1079,7 +1088,8 @@
 				2BF401BC15C0B47C00B5BFD9 /* ViewPlacementGenerator.mm in Sources */,
 				2B40467D15F9B4F400937923 /* GeometryLayer.mm in Sources */,
 				FBDA6EC8162C6EC600BF0C4B /* NetworkTileQuadSource.mm in Sources */,
-				FBDA6ECE162C717300BF0C4B /* NetworkTileQuadSourceQuadKey.mm in Sources */,
+				FBDA6ECE162C717300BF0C4B /* NetworkTileQuadSourceMetadata.mm in Sources */,
+				FBDA6F6D162EF8D500BF0C4B /* NetworkTileQuadSourceExternal.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

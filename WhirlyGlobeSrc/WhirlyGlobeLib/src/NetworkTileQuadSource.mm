@@ -17,7 +17,7 @@ using namespace WhirlyGlobe;
 @synthesize numSimultaneous;
 @synthesize cacheDir;
 
-- (id)initWithImageExtenstion:(NSString *)imageExtension
+- (id)initWithImageExtension:(NSString *)imageExtension
 {
     if(self = [super init])
     {
