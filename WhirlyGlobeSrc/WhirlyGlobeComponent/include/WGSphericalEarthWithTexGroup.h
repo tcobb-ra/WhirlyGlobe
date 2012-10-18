@@ -28,6 +28,6 @@
 
 /// Set up a spherical earth layer with a texture group.
 /// Returns nil on failure.
-- (id)initWithTextureGroupName:(NSString *)textureGroupName;
+- (id)initWithTextureGroupName:(NSString *)textureGroupName zoomRange:(NSRange)zoomRange;
 
 @end

@@ -23,6 +23,13 @@
 
 @implementation WGViewControllerLayer
 
+- (id)initWithZoomRange:(NSRange)zoomRange
+{
+    if(self = [super init])
+        self.zoomRange = zoomRange;
+    return self;
+}
+
 - (void)startOnLayerThread:(WhirlyKitLayerThread *)layerThread withRenderer:(WhirlyKitSceneRendererES1 *)renderer
 {
     [layerThread addLayer:self.mainLayer];

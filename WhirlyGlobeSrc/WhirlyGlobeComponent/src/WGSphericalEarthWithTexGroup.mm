@@ -31,9 +31,9 @@ using namespace WhirlyGlobe;
 
 @implementation WGSphericalEarthWithTexGroup
 
-- (id)initWithTextureGroupName:(NSString *)textureGroupName
+- (id)initWithTextureGroupName:(NSString *)textureGroupName zoomRange:(NSRange)zoomRange
 {
-    if(self = [super init])
+    if(self = [super initWithZoomRange:zoomRange])
     {
         NSString *infoPath = [[NSBundle mainBundle] pathForResource:textureGroupName ofType:@"plist"];
         self.textureGroup = [[WhirlyKitTextureGroup alloc] initWithInfo:infoPath];

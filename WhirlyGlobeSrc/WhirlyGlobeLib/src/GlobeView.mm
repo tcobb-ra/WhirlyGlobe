@@ -93,6 +93,7 @@ using namespace Eigen;
 // Also keep track of when we did it
 - (void)setHeightAboveGlobe:(float)newH
 {
+    NSLog(@"newH:%f", newH);
 	float minH = [self minHeightAboveGlobe];
 	heightAboveGlobe = std::max(newH,minH);
 

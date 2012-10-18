@@ -10,6 +10,6 @@
 
 @interface WGQuadEarthWithMBTiles : WGViewControllerLayer
 
-- (id)initWithMBTilesArchiveName:(NSString *)archiveName;
+- (id)initWithMBTilesArchiveName:(NSString *)archiveName zoomRange:(NSRange)zoomRange;
 
 @end

@@ -16,7 +16,6 @@ typedef NS_ENUM(NSUInteger, BaseLayer) {
     GeographyClassMBTilesLocal,
     StamenWatercolorRemote,
     OpenStreetmapRemote,
-    BingMapsRemote,
     MaxBaseLayers
 };
 

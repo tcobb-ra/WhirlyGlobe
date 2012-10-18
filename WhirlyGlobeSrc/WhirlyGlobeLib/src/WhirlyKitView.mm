@@ -36,7 +36,7 @@ using namespace Eigen;
 	if ((self = [super init]))
     {
         fieldOfView = 60.0 / 360.0 * 2 * (float)M_PI;  // 60 degree field of view
-		nearPlane = 0.001;
+		nearPlane = 0.00001;
 		imagePlaneSize = nearPlane * tanf(fieldOfView / 2.0);
 		farPlane = 2.6;
         lastChangedTime = CFAbsoluteTimeGetCurrent();

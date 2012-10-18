@@ -41,8 +41,8 @@
 		2BBEB82F15CB06AD00E363E7 /* WGVectorObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2BBEB82E15CB06AD00E363E7 /* WGVectorObject.mm */; };
 		2BBEB83515CB2A2D00E363E7 /* WGVectorObject_private.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BBEB83415CB2A2D00E363E7 /* WGVectorObject_private.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2BE8491415BC8DEB006CFD3F /* WGComponentObject_private.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BE8491315BC8DEB006CFD3F /* WGComponentObject_private.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2BECC1BD15E548EF00FBD805 /* PinchDelegateFixed.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BECC1BC15E548EF00FBD805 /* PinchDelegateFixed.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2BECC1BF15E5490000FBD805 /* PinchDelegateFixed.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2BECC1BE15E5490000FBD805 /* PinchDelegateFixed.mm */; };
+		FBDA6FE016304D4900BF0C4B /* libWhirlyGlobeLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDA6F9E162F4E5600BF0C4B /* libWhirlyGlobeLib.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +51,13 @@
 			containerPortal = FBDA6F96162F4E5600BF0C4B /* WhirlyGlobeLib.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 2BDC4ABB133404BB00E25283;
+			remoteInfo = WhirlyGlobeLib;
+		};
+		FBDA6FDE16304D3700BF0C4B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FBDA6F96162F4E5600BF0C4B /* WhirlyGlobeLib.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 2BDC4ABA133404BB00E25283;
 			remoteInfo = WhirlyGlobeLib;
 		};
 /* End PBXContainerItemProxy section */
@@ -102,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBDA6FE016304D4900BF0C4B /* libWhirlyGlobeLib.a in Frameworks */,
 				2B11E0DF15B4C030007AAE3F /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,7 +259,6 @@
 				2B0B0D1315C1D88600CCB3B2 /* WGViewTracker.h in Headers */,
 				2BBEB82B15CB06A100E363E7 /* WGVectorObject.h in Headers */,
 				2BBEB83515CB2A2D00E363E7 /* WGVectorObject_private.h in Headers */,
-				2BECC1BD15E548EF00FBD805 /* PinchDelegateFixed.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +276,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				FBDA6FDF16304D3700BF0C4B /* PBXTargetDependency */,
 			);
 			name = WhirlyGlobeComponent;
 			productName = WhirlyGlobeComponent;
@@ -341,6 +349,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FBDA6FDF16304D3700BF0C4B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = WhirlyGlobeLib;
+			targetProxy = FBDA6FDE16304D3700BF0C4B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		2B11E0E615B4C030007AAE3F /* Debug */ = {

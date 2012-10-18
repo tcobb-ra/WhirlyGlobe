@@ -82,8 +82,6 @@
         case OpenStreetmapRemote:
             cell.textLabel.text = @"OpenStreetMap - Remote";
             break;
-        case BingMapsRemote:
-            cell.textLabel.text = @"BingMaps - Remote";
         default:
             break;
     }

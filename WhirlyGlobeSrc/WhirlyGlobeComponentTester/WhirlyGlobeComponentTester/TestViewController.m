@@ -154,11 +154,11 @@ LocationInfo locations[NumLocations] =
     {
         case BlueMarbleSingleResLocal:
             // This is the static image set, included with the app, built with ImageChopper
-            [globeViewC addSphericalEarthLayerWithImageSet:@"lowres_wtb_info"];
+            [globeViewC startRenderingLayer:[[WGSphericalEarthWithTexGroup alloc] initWithTextureGroupName:@"lowres_wtb_info" zoomRange:NSMakeRange(0, 12)]];
             break;
         case GeographyClassMBTilesLocal:
             // This is the Geography Class MBTiles data set from MapBox
-            [globeViewC addQuadEarthLayerWithMBTiles:@"geography-class"];
+            [globeViewC startRenderingLayer:[[WGQuadEarthWithMBTiles alloc] initWithMBTilesArchiveName:@"geography-class" zoomRange:NSMakeRange(0, 12)]];
             screenLabelColor = [UIColor blackColor];
             screenLabelBackColor = [UIColor whiteColor];
             labelColor = [UIColor blackColor];
@@ -173,7 +173,7 @@ LocationInfo locations[NumLocations] =
             NSString *thisCacheDir = [NSString stringWithFormat:@"%@/stamentiles/",cacheDir];
             NSError *error = nil;
             [[NSFileManager defaultManager] createDirectoryAtPath:thisCacheDir withIntermediateDirectories:YES attributes:nil error:&error];
-            [globeViewC addQuadEarthLayerWithRemoteSource:@"http://tile.stamen.com/watercolor/" imageExt:@"png" cache:thisCacheDir minZoom:2 maxZoom:10];
+            [globeViewC startRenderingLayer:[[WGQuadEarthWithRemoteTiles alloc] initWithBaseURL:@"http://tile.stamen.com/watercolor/" imageExtension:@"png" zoomRange:NSMakeRange(0, 23)]];
             screenLabelColor = [UIColor blackColor];
             screenLabelBackColor = [UIColor whiteColor];
             labelColor = [UIColor blackColor];
@@ -188,36 +188,7 @@ LocationInfo locations[NumLocations] =
             NSString *thisCacheDir = [NSString stringWithFormat:@"%@/osmtiles/",cacheDir];
             NSError *error = nil;
             [[NSFileManager defaultManager] createDirectoryAtPath:thisCacheDir withIntermediateDirectories:YES attributes:nil error:&error];
-            [globeViewC addQuadEarthLayerWithRemoteSource:@"http://otile1.mqcdn.com/tiles/1.0.0/osm/" imageExt:@"png" cache:thisCacheDir minZoom:0 maxZoom:12];            
-            screenLabelColor = [UIColor blackColor];
-            screenLabelBackColor = [UIColor whiteColor];
-            labelColor = [UIColor blackColor];
-            labelBackColor = [UIColor whiteColor];
-            vecColor = [UIColor brownColor];
-            vecWidth = 2.0;
-        }
-            break;
-        case BingMapsRemote:
-        {
-            NSString *thisCacheDir = [NSString stringWithFormat:@"%@/bingtiles/", cacheDir];
-            NSError *error = nil;
-            [[NSFileManager defaultManager] createDirectoryAtPath:thisCacheDir withIntermediateDirectories:YES attributes:nil error:&error];
-            
-            [globeViewC addQuadEarthLayerWithMetadataURL:@"http://dev.virtualearth.net/REST/v1/Imagery/Metadata/Aerial?key=AjeEdkQabQ_xX9nYyEbTpwMfIltNfTL3_CryVvFKvTL4fXWzy7fF6x_t8ndteCXG" imageExt:@"jpg" cache:thisCacheDir minZoom:0 maxZoom:12 andImageURLBuilder:^NSString *(NSData *metadataData, NSString *quadKey)
-            {
-                NSError *error = nil;
-                NSDictionary *metadata = [NSJSONSerialization JSONObjectWithData:metadataData options:0 error:&error];
-                
-                NSDictionary *resources = metadata[@"resourceSets"][0][@"resources"][0];
-                NSArray *imageURLSubdomains = resources[@"imageUrlSubdomains"];
-                
-                NSMutableString *imageURL = [resources[@"imageUrl"] mutableCopy];
-                [imageURL replaceOccurrencesOfString:@"{subdomain}" withString:imageURLSubdomains[0] options:0 range:NSMakeRange(0, [imageURL length])];
-                [imageURL replaceOccurrencesOfString:@"{quadkey}" withString:quadKey options:0 range:NSMakeRange(0, [imageURL length])];
-                
-                return imageURL;
-            }];
-            
+            [globeViewC startRenderingLayer:[[WGQuadEarthWithRemoteTiles alloc] initWithBaseURL:@"http://otile1.mqcdn.com/tiles/1.0.0/osm/" imageExtension:@"png" zoomRange:NSMakeRange(0, 12)] withCacheDirectory:thisCacheDir];
             screenLabelColor = [UIColor blackColor];
             screenLabelBackColor = [UIColor whiteColor];
             labelColor = [UIColor blackColor];

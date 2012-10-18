@@ -31,12 +31,11 @@
 @interface WGViewControllerLayer : NSObject
 
 @property (strong, nonatomic) NSObject<WhirlyKitLayer> *mainLayer;
+@property (assign, nonatomic) NSRange zoomRange;
 
-- (void)startOnLayerThread:(WhirlyKitLayerThread *)layerThread withRenderer:(WhirlyKitSceneRendererES1 *)renderer;
-    // withScene:(WhirlyGlobe::GlobeScene *)globeScene
-               
-- (void)removeLayerFromThread:(WhirlyKitLayerThread *)layerThread;
-    // andScene:(WhirlyGlobe::GlobeScene *)globeScene;
+- (id)initWithZoomRange:(NSRange)zoomRange;
+- (void)startOnLayerThread:(WhirlyKitLayerThread *)layerThread withRenderer:(WhirlyKitSceneRendererES1 *)renderer; // withScene:(WhirlyGlobe::GlobeScene *)globeScene
+- (void)removeLayerFromThread:(WhirlyKitLayerThread *)layerThread; // andScene:(WhirlyGlobe::GlobeScene *)globeScene;
 
 @end
 
