@@ -322,6 +322,7 @@ using namespace WhirlyGlobe;
 {
     [userLayers addObject:layer];
     [layer startOnLayerThread:layerThread withRenderer:sceneRenderer];
+    // TODO: configure zoom depths based on layer -- layer.zoomRange :: globeView.nearPlane, globeView.farPlane
 }
 
 - (void)startRenderingLayer:(WGViewControllerLayer<WGCacheableLayer> *)layer withCacheDirectory:(NSString *)cacheDirectory
@@ -329,6 +330,7 @@ using namespace WhirlyGlobe;
     layer.cacheDirectory = cacheDirectory;
     [userLayers addObject:layer];
     [layer startOnLayerThread:layerThread withRenderer:sceneRenderer];
+    // TODO: configure zoom depths based on layer -- layer.zoomRange :: globeView.nearPlane, globeView.farPlane
 }
 
 - (void)stopRenderingLayer:(WGViewControllerLayer *)layer

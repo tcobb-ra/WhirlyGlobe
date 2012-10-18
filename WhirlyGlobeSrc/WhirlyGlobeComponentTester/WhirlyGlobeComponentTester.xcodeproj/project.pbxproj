@@ -47,6 +47,13 @@
 			remoteGlobalIDString = 2B11E0DB15B4C030007AAE3F;
 			remoteInfo = WhirlyGlobeComponent;
 		};
+		FBDA6FDC16304D2900BF0C4B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2BE8498B15BDEFC4006CFD3F /* WhirlyGlobeComponent.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 2B11E0DA15B4C030007AAE3F;
+			remoteInfo = WhirlyGlobeComponent;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -231,6 +238,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				FBDA6FDD16304D2900BF0C4B /* PBXTargetDependency */,
 			);
 			name = WhirlyGlobeComponentTester;
 			productName = WhirlyGlobeComponentTester;
@@ -320,6 +328,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		FBDA6FDD16304D2900BF0C4B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = WhirlyGlobeComponent;
+			targetProxy = FBDA6FDC16304D2900BF0C4B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		2BE8497A15BDE270006CFD3F /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
@@ -384,7 +400,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WhirlyGlobeComponentTester/WhirlyGlobeComponentTester-Prefix.pch";
-				HEADER_SEARCH_PATHS = ../WhirlyGlobeComponent/include/;
+				HEADER_SEARCH_PATHS = ../WhirlyGlobeComponent/WhirlyGlobeComponent.framework/Headers;
 				INFOPLIST_FILE = "WhirlyGlobeComponentTester/WhirlyGlobeComponentTester-Info.plist";
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -397,7 +413,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WhirlyGlobeComponentTester/WhirlyGlobeComponentTester-Prefix.pch";
-				HEADER_SEARCH_PATHS = ../WhirlyGlobeComponent/include/;
+				HEADER_SEARCH_PATHS = ../WhirlyGlobeComponent/WhirlyGlobeComponent.framework/Headers;
 				INFOPLIST_FILE = "WhirlyGlobeComponentTester/WhirlyGlobeComponentTester-Info.plist";
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";

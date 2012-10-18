@@ -163,6 +163,7 @@
 		FBDA6EE1162CAF8400BF0C4B /* shapefil.h in Headers */ = {isa = PBXBuildFile; fileRef = FBDA6EE0162CAF8400BF0C4B /* shapefil.h */; };
 		FBDA6F6C162EF8D500BF0C4B /* NetworkTileQuadSourceExternal.h in Headers */ = {isa = PBXBuildFile; fileRef = FBDA6F6A162EF8D400BF0C4B /* NetworkTileQuadSourceExternal.h */; };
 		FBDA6F6D162EF8D500BF0C4B /* NetworkTileQuadSourceExternal.mm in Sources */ = {isa = PBXBuildFile; fileRef = FBDA6F6B162EF8D500BF0C4B /* NetworkTileQuadSourceExternal.mm */; };
+		FBDA6FDB16304A9100BF0C4B /* NetworkTileQuadSourceDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = FBDA6FDA16304A9100BF0C4B /* NetworkTileQuadSourceDelegate.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -331,7 +332,7 @@
 		FBDA6EE0162CAF8400BF0C4B /* shapefil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = shapefil.h; path = ../../Dependencies/shapelib/shapefil.h; sourceTree = "<group>"; };
 		FBDA6F6A162EF8D400BF0C4B /* NetworkTileQuadSourceExternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkTileQuadSourceExternal.h; sourceTree = "<group>"; };
 		FBDA6F6B162EF8D500BF0C4B /* NetworkTileQuadSourceExternal.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NetworkTileQuadSourceExternal.mm; sourceTree = "<group>"; };
-		FBDA6F6E162EFCD200BF0C4B /* NetworkTileQuadSourceDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkTileQuadSourceDelegate.h; sourceTree = "<group>"; };
+		FBDA6FDA16304A9100BF0C4B /* NetworkTileQuadSourceDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkTileQuadSourceDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -740,7 +741,7 @@
 				2B87302A154B535500AFEE25 /* TileQuadLoader.h */,
 				2B774CCC1546589300BA79E4 /* MBTileQuadSource.h */,
 				FBDA6EC7162C6EC600BF0C4B /* NetworkTileQuadSource.h */,
-				FBDA6F6E162EFCD200BF0C4B /* NetworkTileQuadSourceDelegate.h */,
+				FBDA6FDA16304A9100BF0C4B /* NetworkTileQuadSourceDelegate.h */,
 				2B5FA417155DD7A100232E18 /* NetworkTileQuadSourceSlippyMaps.h */,
 				FBDA6ECC162C714F00BF0C4B /* NetworkTileQuadSourceMetadata.h */,
 				FBDA6F6A162EF8D400BF0C4B /* NetworkTileQuadSourceExternal.h */,
@@ -957,6 +958,7 @@
 				2B40467B15F9B4D300937923 /* GeometryLayer.h in Headers */,
 				FBDA6EC9162C6EC600BF0C4B /* NetworkTileQuadSource.h in Headers */,
 				FBDA6F6C162EF8D500BF0C4B /* NetworkTileQuadSourceExternal.h in Headers */,
+				FBDA6FDB16304A9100BF0C4B /* NetworkTileQuadSourceDelegate.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

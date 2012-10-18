@@ -21,7 +21,7 @@
 
 - (id)initWithBaseURL:(NSString *)baseURL imageExtension:(NSString *)ext zoomRange:(NSRange)zoomRange
 {
-    if(self = [super init])
+    if(self = [super initWithZoomRange:zoomRange])
     {
         self.dataSource = [[WhirlyGlobeNetworkTileQuadSourceSlippyMaps alloc] initWithBaseURL:baseURL ext:ext];
         [self configureDataSource:self.dataSource withZoomRange:zoomRange];
@@ -31,7 +31,7 @@
 
 - (id)initWithMetadataURL:(NSString *)metadataURL imageExtension:(NSString *)imageExtension zoomRange:(NSRange)zoomRange
 {
-    if(self = [super init])
+    if(self = [super initWithZoomRange:zoomRange])
     {
         self.dataSource = [[WhirlyGlobeNetworkTileQuadSourceMetadata alloc] initWithMetadataURL:metadataURL andImageExtension:imageExtension];
         [self configureDataSource:self.dataSource withZoomRange:zoomRange];

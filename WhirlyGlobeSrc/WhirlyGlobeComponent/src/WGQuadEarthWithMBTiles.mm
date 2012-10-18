@@ -18,9 +18,9 @@
 
 @implementation WGQuadEarthWithMBTiles
 
-- (id)initWithMBTilesArchiveName:(NSString *)archiveName
+- (id)initWithMBTilesArchiveName:(NSString *)archiveName zoomRange:(NSRange)zoomRange
 {
-    if(self = [super init])
+    if(self = [super initWithZoomRange:zoomRange])
     {
         NSString *infoPath = [[NSBundle mainBundle] pathForResource:archiveName ofType:@"mbtiles"];
         if (!infoPath)
