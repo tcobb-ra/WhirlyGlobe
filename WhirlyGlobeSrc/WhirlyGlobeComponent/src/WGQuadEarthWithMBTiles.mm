@@ -27,6 +27,7 @@
             return nil;
         self.dataSource = [[WhirlyMBTileQuadSource alloc] initWithPath:infoPath];
         self.tileLoader = [[WhirlyGlobeQuadTileLoader alloc] initWithDataSource:self.dataSource];
+        self.tileLoader.coverPoles = true;
     }
     return self;
 }

@@ -188,6 +188,7 @@
 		2BE849AF15BDF8B9006CFD3F /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				2BE9A24E162D0D37006C9173 /* country_json_50m */,
 				2BB9E02215BFA57600F1DDD8 /* Star.png */,
 				2BE849CF15BE01EE006CFD3F /* map_pin.png */,
 				2BE849B015BDF902006CFD3F /* lowres_wtb */,
@@ -222,6 +223,14 @@
 			);
 			name = MBTiles;
 			path = resources/MBTiles;
+			sourceTree = SOURCE_ROOT;
+		};
+		2BE9A24E162D0D37006C9173 /* country_json_50m */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = country_json_50m;
+			path = resources/country_json_50m;
 			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */

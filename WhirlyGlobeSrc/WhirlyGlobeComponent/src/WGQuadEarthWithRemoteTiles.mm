@@ -35,6 +35,8 @@
     {
         self.dataSource = [[WhirlyGlobeNetworkTileQuadSourceMetadata alloc] initWithMetadataURL:metadataURL andImageExtension:imageExtension];
         [self configureDataSource:self.dataSource withZoomRange:zoomRange];
+        self.tileLoader = [[WhirlyGlobeQuadTileLoader alloc] initWithDataSource:self.dataSource];
+        self.tileLoader.coverPoles = true;
     }
     return self;
 }
@@ -48,7 +50,6 @@
 
 - (void)startOnLayerThread:(WhirlyKitLayerThread *)layerThread withRenderer:(WhirlyKitSceneRendererES1 *)renderer
 {
-    self.tileLoader = [[WhirlyGlobeQuadTileLoader alloc] initWithDataSource:self.dataSource];
     self.tileLoader.ignoreEdgeMatching = !renderer.zBuffer;
     self.mainLayer = [[WhirlyGlobeQuadDisplayLayer alloc] initWithDataSource:self.dataSource loader:self.tileLoader renderer:renderer];
     [super startOnLayerThread:layerThread withRenderer:renderer];

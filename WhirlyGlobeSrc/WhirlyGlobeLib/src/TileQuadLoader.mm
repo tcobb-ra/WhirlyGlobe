@@ -257,6 +257,7 @@ void LoadedTile::Print(Quadtree *tree)
 @synthesize hasAlpha;
 @synthesize quadLayer;
 @synthesize ignoreEdgeMatching;
+@synthesize coverPoles;
 
 - (id)initWithDataSource:(NSObject<WhirlyGlobeQuadTileImageDataSource> *)inDataSource;
 {
@@ -542,6 +543,77 @@ static const float SkirtFactor = 0.95;
                     skirtTexCoords.push_back(texCoords[(sphereTessX+1)*iy+(sphereTessX)]);
                 }
                 [self buildSkirt:chunk pts:skirtLocs tex:skirtTexCoords];
+            }
+            
+            if (coverPoles)
+            {
+                // If we're at the top, toss in a few more triangles to represent that
+                int maxY = 1 << nodeInfo->ident.level;
+                if (nodeInfo->ident.y == maxY-1)
+                {
+                    TexCoord singleTexCoord(0.5,0.0);
+                    // One point for the north pole
+                    Point3f northPt(0,0,1.0);
+                    chunk->addPoint(northPt);
+                    chunk->addTexCoord(singleTexCoord);
+                    chunk->addNormal(Point3f(0,0,1.0));
+                    int northVert = chunk->getNumPoints()-1;
+                    
+                    // A line of points for the outer ring, but we can copy them
+                    int startOfLine = chunk->getNumPoints();
+                    int iy = sphereTessY;
+                    for (unsigned int ix=0;ix<sphereTessX+1;ix++)
+                    {
+                        Point3f pt = chunk->getPoint(iy*(sphereTessX+1)+ix);
+                        Point3f norm = chunk->getNormal(iy*(sphereTessX+1)+ix);
+                        chunk->addPoint(pt);
+                        chunk->addNormal(norm);
+                        chunk->addTexCoord(singleTexCoord);
+                    }
+
+                    // And define the triangles
+                    for (unsigned int ix=0;ix<sphereTessX;ix++)
+                    {
+                        BasicDrawable::Triangle tri;
+                        tri.verts[0] = startOfLine+ix;
+                        tri.verts[1] = startOfLine+ix+1;
+                        tri.verts[2] = northVert;
+                        chunk->addTriangle(tri);
+                    }
+                }
+                
+                if (nodeInfo->ident.y == 0)
+                {
+                    TexCoord singleTexCoord(0.5,1.0);
+                    // One point for the south pole
+                    Point3f southPt(0,0,-1.0);
+                    chunk->addPoint(southPt);
+                    chunk->addTexCoord(singleTexCoord);
+                    chunk->addNormal(Point3f(0,0,-1.0));
+                    int southVert = chunk->getNumPoints()-1;
+                    
+                    // A line of point sfor the out ring, which we can copy
+                    int startOfLine = chunk->getNumPoints();
+                    int iy = 0;
+                    for (unsigned int ix=0;ix<sphereTessX+1;ix++)
+                    {
+                        Point3f pt = chunk->getPoint(iy*(sphereTessX+1)+ix);
+                        Point3f norm = chunk->getNormal(iy*(sphereTessX+1)+ix);
+                        chunk->addPoint(pt);
+                        chunk->addNormal(norm);
+                        chunk->addTexCoord(singleTexCoord);
+                    }
+                    
+                    // And define the triangles
+                    for (unsigned int ix=0;ix<sphereTessX;ix++)
+                    {
+                        BasicDrawable::Triangle tri;
+                        tri.verts[0] = southVert;
+                        tri.verts[1] = startOfLine+ix+1;
+                        tri.verts[2] = startOfLine+ix;
+                        chunk->addTriangle(tri);
+                    }
+                }
             }
             
             if (tex && *tex)
